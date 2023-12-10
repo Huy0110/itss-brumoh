@@ -3,12 +3,9 @@ const dbConfig = require('../config/db.config')
 const Role = db.role;
 
 db.mongoose
-  .connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}`, {
+  .connect(`mongodb://${dbConfig.USERNAME}:${dbConfig.PASSWORD}@${dbConfig.HOST}:27017/${dbConfig.DB}`, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    dbName: dbConfig.DB,
-    user: dbConfig.USERNAME,
-    pass: dbConfig.PASSWORD
   })
   .then(() => {
     console.log("Successfully connect to MongoDB.");
