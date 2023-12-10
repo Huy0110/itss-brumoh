@@ -1,6 +1,6 @@
-const db = require("../models");
+const db = require('../models')
 const dbConfig = require('../config/db.config')
-const Role = db.role;
+const Role = db.role
 
 db.mongoose
   .connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}`, {
@@ -11,41 +11,41 @@ db.mongoose
     pass: dbConfig.PASSWORD
   })
   .then(() => {
-    console.log("Successfully connect to MongoDB.");
-    initial();
+    console.log('Successfully connect to MongoDB.')
+    initial()
   })
-  .catch(err => {
-    console.error("Connection error", err);
-    process.exit();
-  });
+  .catch((err) => {
+    console.error('Connection error', err)
+    process.exit()
+  })
 
 function initial() {
   Role.estimatedDocumentCount()
-    .then(count => {
+    .then((count) => {
       if (count === 0) {
         const userRole = new Role({
-          name: "user"
-        });
+          name: 'user'
+        })
 
         const adminRole = new Role({
-          name: "admin"
-        });
+          name: 'admin'
+        })
 
-        return Promise.all([userRole.save(), adminRole.save()]);
+        return Promise.all([userRole.save(), adminRole.save()])
       }
     })
-    .then(savedRoles => {
+    .then((savedRoles) => {
       if (savedRoles) {
-        savedRoles.forEach(savedRole => {
-          console.log(`added '${savedRole.name}' to roles collection`);
-        });
+        savedRoles.forEach((savedRole) => {
+          console.log(`added '${savedRole.name}' to roles collection`)
+        })
       }
     })
-    .catch(err => {
-      console.error("Error when counting documents or saving roles", err);
-    });
+    .catch((err) => {
+      console.error('Error when counting documents or saving roles', err)
+    })
 }
 
 module.exports = {
   db
-};
+}

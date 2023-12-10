@@ -1,6 +1,6 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import './App.css'; // Import stylesheet
+import './App.css' // Import stylesheet
 
 const MainLayout = () => {
   return (
@@ -11,7 +11,7 @@ const MainLayout = () => {
       </div>
       <div className="black-background"></div>
     </div>
-  );
+  )
 }
 
 export default MainLayout
