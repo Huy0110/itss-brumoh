@@ -1,6 +1,7 @@
 const { mongoose } = require('mongoose')
-const User = require('../models/user.model')
-const Role = require('../models/role.model')
+const db = require('../models')
+const User = db.user
+const Role = db.role
 exports.allAccess = (req, res) => {
   res.status(200).send('Public Content.')
 }
@@ -35,5 +36,83 @@ exports.getMyProfile = async (req, res) => {
   } catch (error) {
     console.error(error)
     res.status(500).json({ message: 'Internal server error' })
+  }
+}
+
+// API để lấy chỉ số cơ thể của người dùng
+exports.getBodyMeasurements = async (req, res) => {
+  try {
+    const userId = req.userId
+    const user = await User.findById(userId).select('height weight bust waist hip')
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' })
+    }
+
+    res.status(200).json({ bodyMeasurements: user })
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({ message: 'Internal Server Error' })
+  }
+}
+
+// API để thêm hoặc cập nhật chỉ số cơ thể của người dùng
+exports.createOrUpdateBodyMeasurements = async (req, res) => {
+  try {
+    const userId = req.userId
+    const { height, weight, bust, waist, hip } = req.body
+
+    const updatedUser = await User.findByIdAndUpdate(
+      userId,
+      {
+        $set: {
+          height,
+          weight,
+          bust,
+          waist,
+          hip
+        }
+      },
+      { new: true }
+    ).select('height weight bust waist hip')
+
+    if (!updatedUser) {
+      return res.status(404).json({ message: 'User not found' })
+    }
+
+    res.status(200).json({ message: 'Body measurements updated successfully', bodyMeasurements: updatedUser })
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({ message: 'Internal Server Error' })
+  }
+}
+
+// API để xóa chỉ số cơ thể của người dùng
+exports.deleteBodyMeasurements = async (req, res) => {
+  try {
+    const userId = req.userId
+
+    const deletedUser = await User.findByIdAndUpdate(
+      userId,
+      {
+        $unset: {
+          height: '',
+          weight: '',
+          bust: '',
+          waist: '',
+          hip: ''
+        }
+      },
+      { new: true }
+    ).select('height weight bust waist hip')
+
+    if (!deletedUser) {
+      return res.status(404).json({ message: 'User not found' })
+    }
+
+    res.status(200).json({ message: 'Body measurements deleted successfully', bodyMeasurements: deletedUser })
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({ message: 'Internal Server Error' })
   }
 }
