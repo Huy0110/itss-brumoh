@@ -98,15 +98,13 @@ exports.createOrUpdateBodyMeasurements = async (req, res) => {
     const bmr = BodyIndexService.calculateBMR(gender ? 'male' : 'female', weight, height, age)
     const tdee = BodyIndexService.calculateTDEE(bmr, activity_intensity)
 
-    res
-      .status(200)
-      .json({
-        message: 'Body measurements updated successfully',
-        bodyMeasurements: updatedUser,
-        bodyFatIndex,
-        bmr,
-        tdee
-      })
+    res.status(200).json({
+      message: 'Body measurements updated successfully',
+      bodyMeasurements: updatedUser,
+      bodyFatIndex,
+      bmr,
+      tdee
+    })
   } catch (error) {
     console.error(error)
     res.status(500).json({ message: 'Internal Server Error' })

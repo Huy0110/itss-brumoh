@@ -32,6 +32,40 @@ const USER = {
       .catch((err) => {
         return err
       })
+  },
+
+  createOrUpdateBodyMeasurements: async ({
+    height,
+    weight,
+    neck,
+    bust,
+    waist,
+    hip,
+    activity_intensity,
+    age,
+    gender
+  }) => {
+    return await privateHttp({
+      method: 'POST',
+      url: `body`,
+      data: {
+        height,
+        weight,
+        neck,
+        bust,
+        waist,
+        hip,
+        activity_intensity,
+        age,
+        gender
+      }
+    })
+      .then((res) => {
+        return res
+      })
+      .catch((err) => {
+        return err
+      })
   }
 }
 

@@ -1,0 +1,15 @@
+.body-params-page-layout {
+  height: 100%;
+  width: 100%;
+  background-color: #414141;
+  padding-top: 20px;
+}
+
+.page-content-container {
+  display: flex;
+  gap: 10px;
+  background-color: #414141;
+  padding: 30px 15px 30px 15px;
+  display: flex;
+  flex-direction: column;
+}
