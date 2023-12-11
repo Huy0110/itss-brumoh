@@ -6,7 +6,7 @@ const GenderToggle = ({ gender, onChange }) => {
       <button className={`${gender ? 'btn-active' : 'btn-default'}`} onClick={() => onChange(true)}>
         NAM
       </button>
-      <button className={`${gender? 'btn-default' : 'btn-active'}`} onClick={() => onChange(false)}>
+      <button className={`${gender ? 'btn-default' : 'btn-active'}`} onClick={() => onChange(false)}>
         NỮ
       </button>
     </div>

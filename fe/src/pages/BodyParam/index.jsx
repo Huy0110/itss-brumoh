@@ -8,11 +8,11 @@ const { Header, Footer, Content } = Layout
 
 export default function BodyParam() {
   return (
-    <Layout className='body-params-page-layout'>
+    <Layout className="body-params-page-layout">
       <Header className="header-container">
         <div className="header-text">NHẬP CHỈ SỐ</div>
       </Header>
-      <Content className='page-content-container'>
+      <Content className="page-content-container">
         <BodyParamsForm />
       </Content>
     </Layout>

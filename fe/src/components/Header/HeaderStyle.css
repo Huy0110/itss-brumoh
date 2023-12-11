@@ -1,13 +1,13 @@
-.header-container{
-    background-color: #FFAB2D;
-    border-color: #414141;
-    height: 64px;
+.header-container {
+  background-color: #ffab2d;
+  border-color: #414141;
+  height: 64px;
 }
 
-.header-text{
-    box-sizing: border-box;
-    text-align: center;
-    font-weight: 600;
-    font-size: 24px;
-    font-family: 'Kanit';
+.header-text {
+  box-sizing: border-box;
+  text-align: center;
+  font-weight: 600;
+  font-size: 24px;
+  font-family: 'Kanit';
 }

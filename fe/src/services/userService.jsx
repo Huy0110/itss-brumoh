@@ -34,7 +34,17 @@ const USER = {
       })
   },
 
-  createOrUpdateBodyMeasurements: async ({height, weight, neck, bust, waist, hip, activity_intensity, age, gender}) => {
+  createOrUpdateBodyMeasurements: async ({
+    height,
+    weight,
+    neck,
+    bust,
+    waist,
+    hip,
+    activity_intensity,
+    age,
+    gender
+  }) => {
     return await privateHttp({
       method: 'POST',
       url: `body`,
