@@ -5,6 +5,7 @@ import AppLayout from './components/layout/AppLayout'
 import LoginPage from './pages/LoginPage'
 import Auth from './hooks/auth'
 import { Home } from './pages/Home'
+import BodyParam from './pages/BodyParam'
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
           <Route index element={<LoginPage />} path="/login" />
         </Route> */}
         <Route element={<MainLayout />}>
+          <Route element={<BodyParam/>} path="/bodyparam"/>
           <Route element={<LoginPage />} path="/login" />
           <Route element={<Auth path={'login'}>{<Home />}</Auth>} path="home" />
         </Route>
