@@ -13,6 +13,7 @@ const User = mongoose.model(
     bust: Number,
     waist: Number,
     hip: Number,
+    neck: Number,
     activity_intensity: Number,
     roles: [
       {
