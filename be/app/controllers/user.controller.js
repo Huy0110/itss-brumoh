@@ -2,6 +2,7 @@ const { mongoose } = require('mongoose')
 const db = require('../models')
 const User = db.user
 const Role = db.role
+const BodyIndexService = require('../services/bodyIndexService')
 exports.allAccess = (req, res) => {
   res.status(200).send('Public Content.')
 }
@@ -43,13 +44,22 @@ exports.getMyProfile = async (req, res) => {
 exports.getBodyMeasurements = async (req, res) => {
   try {
     const userId = req.userId
-    const user = await User.findById(userId).select('height weight bust waist hip')
+    const user = await User.findById(userId).select('height weight neck bust waist hip age gender activity_intensity')
 
     if (!user) {
       return res.status(404).json({ message: 'User not found' })
     }
+    const bodyFatIndex = BodyIndexService.calculateBodyFatIndex(
+      user.gender ? 'male' : 'female',
+      user.neck,
+      user.waist,
+      user.hip,
+      user.height
+    )
+    const bmr = BodyIndexService.calculateBMR(user.gender ? 'male' : 'female', user.weight, user.height, user.age)
+    const tdee = BodyIndexService.calculateTDEE(bmr, user.activity_intensity)
 
-    res.status(200).json({ bodyMeasurements: user })
+    res.status(200).json({ bodyMeasurements: user, bodyFatIndex, bmr, tdee })
   } catch (error) {
     console.error(error)
     res.status(500).json({ message: 'Internal Server Error' })
@@ -60,7 +70,7 @@ exports.getBodyMeasurements = async (req, res) => {
 exports.createOrUpdateBodyMeasurements = async (req, res) => {
   try {
     const userId = req.userId
-    const { height, weight, bust, waist, hip } = req.body
+    const { height, weight, neck, bust, waist, hip, activity_intensity, age, gender } = req.body
 
     const updatedUser = await User.findByIdAndUpdate(
       userId,
@@ -68,19 +78,35 @@ exports.createOrUpdateBodyMeasurements = async (req, res) => {
         $set: {
           height,
           weight,
+          neck,
           bust,
           waist,
-          hip
+          hip,
+          activity_intensity,
+          age,
+          gender
         }
       },
       { new: true }
-    ).select('height weight bust waist hip')
+    ).select('height weight neck bust waist hip')
 
     if (!updatedUser) {
       return res.status(404).json({ message: 'User not found' })
     }
 
-    res.status(200).json({ message: 'Body measurements updated successfully', bodyMeasurements: updatedUser })
+    const bodyFatIndex = BodyIndexService.calculateBodyFatIndex(gender ? 'male' : 'female', neck, waist, hip, height)
+    const bmr = BodyIndexService.calculateBMR(gender ? 'male' : 'female', weight, height, age)
+    const tdee = BodyIndexService.calculateTDEE(bmr, activity_intensity)
+
+    res
+      .status(200)
+      .json({
+        message: 'Body measurements updated successfully',
+        bodyMeasurements: updatedUser,
+        bodyFatIndex,
+        bmr,
+        tdee
+      })
   } catch (error) {
     console.error(error)
     res.status(500).json({ message: 'Internal Server Error' })
@@ -98,13 +124,14 @@ exports.deleteBodyMeasurements = async (req, res) => {
         $unset: {
           height: '',
           weight: '',
+          neck: '',
           bust: '',
           waist: '',
           hip: ''
         }
       },
       { new: true }
-    ).select('height weight bust waist hip')
+    ).select('height weight neck bust waist hip')
 
     if (!deletedUser) {
       return res.status(404).json({ message: 'User not found' })
