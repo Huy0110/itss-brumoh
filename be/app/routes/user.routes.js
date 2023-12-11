@@ -12,4 +12,13 @@ module.exports = function (app) {
   app.get('/api/test/user', [authJwt.verifyToken], controller.userBoard)
 
   app.get('/me', [authJwt.verifyToken], controller.getMyProfile)
+
+  // Lấy chỉ số cơ thể của người dùng
+  app.get('/body', [authJwt.verifyToken], controller.getBodyMeasurements)
+
+  // Thêm hoặc cập nhật chỉ số cơ thể của người dùng
+  app.post('/body', [authJwt.verifyToken], controller.createOrUpdateBodyMeasurements)
+
+  // Xóa chỉ số cơ thể của người dùng
+  app.delete('/body', [authJwt.verifyToken], controller.deleteBodyMeasurements)
 }
