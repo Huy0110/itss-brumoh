@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import BottomNavigation from '@mui/material/BottomNavigation'
 import BottomNavigationAction from '@mui/material/BottomNavigationAction'
 import HomeIcon from '@mui/icons-material/Home'
@@ -14,11 +14,21 @@ export default function NavBar() {
     setValue(value)
   }
   return (
-    <BottomNavigation className='navbar' value={value} onChange={handleChange}>
-      <BottomNavigationAction component={Link} to="/home" value="home" icon={<HomeIcon className='navbar-icon' />} />
-      <BottomNavigationAction component={Link} to="/bodyparam" value="bodyparam" icon={<CalculateIcon className='navbar-icon' />} />
-      <BottomNavigationAction component={Link} to="/training" value="calendar" icon={<CalendarMonthIcon className='navbar-icon' />} />
-      <BottomNavigationAction component={Link} to="/diet" value="diet" icon={<DiningIcon className='navbar-icon' />} />
+    <BottomNavigation className="navbar" value={value} onChange={handleChange}>
+      <BottomNavigationAction component={Link} to="/home" value="home" icon={<HomeIcon className="navbar-icon" />} />
+      <BottomNavigationAction
+        component={Link}
+        to="/bodyparam"
+        value="bodyparam"
+        icon={<CalculateIcon className="navbar-icon" />}
+      />
+      <BottomNavigationAction
+        component={Link}
+        to="/training"
+        value="calendar"
+        icon={<CalendarMonthIcon className="navbar-icon" />}
+      />
+      <BottomNavigationAction component={Link} to="/diet" value="diet" icon={<DiningIcon className="navbar-icon" />} />
     </BottomNavigation>
   )
 }

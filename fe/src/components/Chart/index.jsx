@@ -12,9 +12,11 @@ export default function Chart() {
             scaleType: 'band'
           }
         ]}
-        yAxis = {[{
+        yAxis={[
+          {
             label: 'Bài tập'
-        }]}
+          }
+        ]}
         series={[
           {
             data: [2, 5, 3, 4, 4, 2, 7]

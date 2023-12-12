@@ -8,7 +8,7 @@ export default function Header({ goBack, text }) {
       <div className="header-large-box">
         <span className="header-text">{text}</span>
       </div>
-      <div className='header-small-box'></div>
+      <div className="header-small-box"></div>
     </div>
   )
 }
