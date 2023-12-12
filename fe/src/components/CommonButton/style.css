@@ -1,0 +1,15 @@
+.common-button{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 70px;
+    background-color: #7B7B7B;
+    border-radius: 8px;
+    color: #F1F1F1;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,0 +1,14 @@
+.navbar {
+    position: fixed;
+    bottom: 0;
+    width: 33%;
+    height: 75px !important;
+    border-radius: 16px 16px 0px 0px;
+    background-color: #515151 !important;
+}
+
+.navbar-icon {
+    font-size: 40px !important;
+    border-radius: 8px;
+    color: #D9D9D9 !important;
+}

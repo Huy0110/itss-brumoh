@@ -13,6 +13,7 @@
   flex: 1; /* Chiếm 1/3 màn hình */
   background-color: #414141; /* Màu nền của phần chiếm 1/3 màn hình */
   display: flex;
-  justify-content: center; /* Căn giữa theo chiều ngang */
-  align-items: center; /* Căn giữa theo chiều dọc */
+  flex-direction: column;
+  /* justify-content: center; Căn giữa theo chiều ngang */
+  align-items: center; /*Căn giữa theo chiều dọc*/
 }

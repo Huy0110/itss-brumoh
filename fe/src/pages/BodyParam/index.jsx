@@ -1,20 +1,15 @@
 import React from 'react'
-import '../../components/Header/HeaderStyle.css'
-import { Layout } from 'antd'
 import BodyParamsForm from '../../components/BodyParamsForm'
+import Header from '../../components/Header'
 import './style.css'
-
-const { Header, Footer, Content } = Layout
 
 export default function BodyParam() {
   return (
-    <Layout className="body-params-page-layout">
-      <Header className="header-container">
-        <div className="header-text">NHẬP CHỈ SỐ</div>
-      </Header>
-      <Content className="page-content-container">
+    <>
+      <Header text={"NHẬP CHỈ SỐ"}/>
+      <div className="page-content-container">
         <BodyParamsForm />
-      </Content>
-    </Layout>
+      </div>
+    </>
   )
 }
