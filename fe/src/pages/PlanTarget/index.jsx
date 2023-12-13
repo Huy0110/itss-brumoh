@@ -10,7 +10,7 @@ export default function PlanTarget() {
     <div className="container">
     <img className="bgImg" src={bgImg} alt="" />
       <div className="wrapper">
-        <div className="header">Chọn mục tiêu</div>
+        <div className="head">Chọn mục tiêu</div>
         <div className="content">
           <text>Tăng cân</text>
           <button><img src={plan1} alt="" /></button>
@@ -23,7 +23,7 @@ export default function PlanTarget() {
           <text>Giảm cân</text>
           <button><img src={plan3} alt="" /></button>
         </div>
-        <div className="footer"><button>Tiếp theo</button></div>
+        <div className="foot"><button>Tiếp theo</button></div>
       </div>
     </div>
   )
