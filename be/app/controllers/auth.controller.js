@@ -3,8 +3,8 @@ const db = require('../models')
 const User = db.user
 const Role = db.role
 
-var jwt = require('jsonwebtoken')
-var bcrypt = require('bcryptjs')
+let jwt = require('jsonwebtoken')
+let bcrypt = require('bcryptjs')
 
 exports.signup = (req, res) => {
   const user = new User({
@@ -55,7 +55,7 @@ exports.signin = (req, res) => {
         return res.status(404).send({ message: 'Email Not found.' })
       }
 
-      var passwordIsValid = bcrypt.compareSync(req.body.password, user.password)
+      let passwordIsValid = bcrypt.compareSync(req.body.password, user.password)
 
       if (!passwordIsValid) {
         return res.status(401).send({
@@ -70,7 +70,7 @@ exports.signin = (req, res) => {
         expiresIn: 86400 // 24 hours
       })
 
-      var authorities = user.roles.map((role) => 'ROLE_' + role.name.toUpperCase())
+      let authorities = user.roles.map((role) => 'ROLE_' + role.name.toUpperCase())
 
       res.status(200).send({
         id: user._id,

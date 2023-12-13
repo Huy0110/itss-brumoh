@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import GenderToggle from '../GenderToggle'
+import { useNavigate } from 'react-router-dom'
 import './style.css'
 import { Input } from 'antd'
 import USER from '../../services/userService'
@@ -14,7 +15,7 @@ export default function BodyParamsForm() {
   const [hip, setHip] = useState(null)
   const [bust, setBust] = useState(null)
   const [activityIntensity, setActivityIntensity] = useState(null)
-
+  const navigate = useNavigate()
   const handleAge = (value) => {
     setAge(value)
   }
@@ -42,42 +43,52 @@ export default function BodyParamsForm() {
   const handleGender = (value) => {
     setGender(value)
   }
-
-  const validate = () => {}
+  const validate = (height, weight, neck, bust, waist, hip, activityIntensity, age, gender) => {
+    if (height && weight && neck && bust && waist && hip && activityIntensity && age && gender) return 1
+  }
   const handleSubmit = async (e) => {
     e.preventDefault()
-    // validate()
-    console.log({ height, weight, neck, bust, waist, hip, activityIntensity, age, gender })
-    try {
-      const res = await USER.createOrUpdateBodyMeasurements({
-        gender: gender,
-        age: parseInt(age),
-        height: parseInt(height),
-        weight: parseInt(weight),
-        neck: parseInt(neck),
-        bust: parseInt(bust),
-        waist: parseInt(waist),
-        hip: parseInt(hip),
-        activity_intensity: parseInt(activityIntensity)
-      })
-      const bodyFatIndex = res?.data?.bodyFatIndex
-      const bmr = res?.data?.bmr
-      const tdee = res?.data?.tdee
+    setAge(parseInt(age))
+    setHeight(parseInt(height))
+    setWeight(parseInt(weight))
+    setNeck(parseInt(neck))
+    setWaist(parseInt(waist))
+    setHip(parseInt(hip))
+    setBust(parseInt(bust))
+    setActivityIntensity(parseInt(activityIntensity))
+    if (validate(height, weight, neck, bust, waist, hip, activityIntensity, age, gender))
+      try {
+        const res = await USER.createOrUpdateBodyMeasurements({
+          gender: gender,
+          age: age,
+          height: height,
+          weight: weight,
+          neck: neck,
+          bust: bust,
+          waist: waist,
+          hip: hip,
+          activity_intensity: activityIntensity
+        })
+        const bodyFatIndex = res?.data?.bodyFatIndex
+        const bmr = res?.data?.bmr
+        const tdee = res?.data?.tdee
 
-      if (bodyFatIndex) {
-        localStorage.setItem('bodyFatIndex', bodyFatIndex)
-      }
+        if (bodyFatIndex) {
+          localStorage.setItem('bodyFatIndex', bodyFatIndex)
+        }
 
-      if (bmr) {
-        localStorage.setItem('bmr', bmr)
-      }
+        if (bmr) {
+          localStorage.setItem('bmr', bmr)
+        }
 
-      if (tdee) {
-        localStorage.setItem('tdee', tdee)
+        if (tdee) {
+          localStorage.setItem('tdee', tdee)
+        }
+
+        navigate('/bodyfat')
+      } catch (error) {
+        console.error(error?.response?.data?.message)
       }
-    } catch (error) {
-      console.error(error?.response?.data?.message)
-    }
   }
   return (
     <>

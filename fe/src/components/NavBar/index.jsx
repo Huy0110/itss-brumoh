@@ -24,7 +24,7 @@ export default function NavBar() {
       />
       <BottomNavigationAction
         component={Link}
-        to="/training"
+        to="/training-plan"
         value="calendar"
         icon={<CalendarMonthIcon className="navbar-icon" />}
       />
