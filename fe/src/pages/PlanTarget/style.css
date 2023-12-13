@@ -1,0 +1,51 @@
+.wrapper {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.bgImg {
+  width: 490px;
+  height: 745px;
+}
+
+.content text {
+  position: absolute;
+  color: white;
+}
+
+.head {
+  color: white;
+  font-weight: 700;
+  font-size: 25px;
+  margin: 20px;
+}
+
+.content text {
+  margin: 50px 0 0 30px;
+  color: white;
+  font-weight: 700;
+  font-size: 25px;
+}
+
+.foot button {
+  margin-top: 50px;
+  display: flex;
+  width: 370px;
+  height: 60px;
+  background-color: #ffab2d;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  border-radius: 25px;
+  margin-bottom: 15px;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.content button {
+  background: transparent;
+  outline: none;
+  border: none;
+}
