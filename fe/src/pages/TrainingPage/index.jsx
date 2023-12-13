@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from '../../components/Header'
 import NavBar from '../../components/NavBar'
-import Chart from '../../components/Chart'
+import TrainingChart from '../../components/TrainingChart'
 import { useNavigate } from 'react-router-dom'
 import './style.css'
 import CommonButton from '../../components/CommonButton'
@@ -16,7 +16,7 @@ export default function TrainingPage() {
   return (
     <>
       <Header goBack={true} text={'Lịch trình luyện tập'} />
-      <Chart />
+      <TrainingChart />
       <button className="detail-button" onClick={onClickDetail}>
         <h4>Lộ trình tập luyện</h4>
         <span>Bấm để xem chi tiết</span>
