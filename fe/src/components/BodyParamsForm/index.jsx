@@ -48,14 +48,6 @@ export default function BodyParamsForm() {
   }
   const handleSubmit = async (e) => {
     e.preventDefault()
-    // setAge(parseInt(age))
-    // setHeight(parseInt(height))
-    // setWeight(parseInt(weight))
-    // setNeck(parseInt(neck))
-    // setWaist(parseInt(waist))
-    // setHip(parseInt(hip))
-    // setBust(parseInt(bust))
-    // setActivityIntensity(parseInt(activityIntensity))
     if (
       validate(
         parseInt(height),
