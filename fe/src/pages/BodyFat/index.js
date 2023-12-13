@@ -5,7 +5,7 @@ import Header from '../../components/Header'
 import { useNavigate } from 'react-router-dom'
 
 function App() {
-  var bodyFatIndex = localStorage.getItem('bodyFatIndex')
+  let bodyFatIndex = localStorage.getItem('bodyFatIndex')
   const navigate = useNavigate()
 
   const handleClick = () => {

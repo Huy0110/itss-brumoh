@@ -20,35 +20,42 @@ export default function BodyParamsForm() {
     setAge(value)
   }
   const handleWeight = (value) => {
-    setWeight(parseInt(value))
+    setWeight(value)
   }
   const handleHeight = (value) => {
-    setHeight(parseInt(value))
+    setHeight(value)
   }
   const handleNeck = (value) => {
-    setNeck(parseInt(value))
+    setNeck(value)
   }
   const handleWaist = (value) => {
-    setWaist(parseInt(value))
+    setWaist(value)
   }
   const handleHip = (value) => {
-    setHip(parseInt(value))
+    setHip(value)
   }
   const handleBust = (value) => {
-    setBust(parseInt(value))
+    setBust(value)
   }
   const handleActivityIntensity = (value) => {
-    setActivityIntensity(parseInt(value))
+    setActivityIntensity(value)
   }
   const handleGender = (value) => {
-    setGender(parseInt(value))
+    setGender(value)
   }
   const validate = (height, weight, neck, bust, waist, hip, activityIntensity, age, gender) => {
     if (height && weight && neck && bust && waist && hip && activityIntensity && age && gender) return 1
   }
   const handleSubmit = async (e) => {
     e.preventDefault()
-
+    setAge(parseInt(age))
+    setHeight(parseInt(height))
+    setWeight(parseInt(weight))
+    setNeck(parseInt(neck))
+    setWaist(parseInt(waist))
+    setHip(parseInt(hip))
+    setBust(parseInt(bust))
+    setActivityIntensity(parseInt(activityIntensity))
     if (validate(height, weight, neck, bust, waist, hip, activityIntensity, age, gender))
       try {
         const res = await USER.createOrUpdateBodyMeasurements({
