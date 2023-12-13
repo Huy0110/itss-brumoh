@@ -48,26 +48,30 @@ export default function BodyParamsForm() {
   }
   const handleSubmit = async (e) => {
     e.preventDefault()
-    setAge(parseInt(age))
-    setHeight(parseInt(height))
-    setWeight(parseInt(weight))
-    setNeck(parseInt(neck))
-    setWaist(parseInt(waist))
-    setHip(parseInt(hip))
-    setBust(parseInt(bust))
-    setActivityIntensity(parseInt(activityIntensity))
-    if (validate(height, weight, neck, bust, waist, hip, activityIntensity, age, gender))
+    if (
+      validate(
+        parseInt(height),
+        parseInt(weight),
+        parseInt(neck),
+        parseInt(bust),
+        parseInt(waist),
+        parseInt(hip),
+        parseInt(activityIntensity),
+        parseInt(age),
+        gender
+      )
+    )
       try {
         const res = await USER.createOrUpdateBodyMeasurements({
           gender: gender,
-          age: age,
-          height: height,
-          weight: weight,
-          neck: neck,
-          bust: bust,
-          waist: waist,
-          hip: hip,
-          activity_intensity: activityIntensity
+          age: parseInt(age),
+          height: parseInt(height),
+          weight: parseInt(weight),
+          neck: parseInt(neck),
+          bust: parseInt(bust),
+          waist: parseInt(waist),
+          hip: parseInt(hip),
+          activity_intensity: parseInt(activityIntensity)
         })
         const bodyFatIndex = res?.data?.bodyFatIndex
         const bmr = res?.data?.bmr
