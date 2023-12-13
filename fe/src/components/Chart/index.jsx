@@ -1,7 +1,7 @@
 import React from 'react'
 import { BarChart } from '@mui/x-charts/BarChart'
 import './style.css'
-export default function Chart() {
+export default function TrainingChart() {
   return (
     <div className="chart-container">
       <BarChart
