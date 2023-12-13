@@ -4,6 +4,8 @@ import bgImg from '../../assets/bg-img.png'
 import IBack from '../../assets/back.png'
 
 function App() {
+  var bodyFatIndex = localStorage.getItem('bodyFatIndex');
+  bodyFatIndex = Math.round(bodyFatIndex * 100)/100;
   return (
     <div className="App">
       <div className="container">
@@ -13,7 +15,7 @@ function App() {
             <img src={IBack} alt="" />
           </div>
           <div className="title">
-            <h3>KET QUA</h3>
+            <h3>KẾT QUẢ</h3>
           </div>
         </div>
         <div className="caculator">
@@ -24,20 +26,20 @@ function App() {
           <div className="caculate">
             <div className="body-fat">
               <text className="title">BODY FAT</text>
-              <text className="fat-variable">23.0%</text>
+              <text className="fat-variable">{bodyFatIndex}%</text>
             </div>
             <div className="body-info">
               <div className="body-fat-title">
                 <ul>
-                  <li>loai mo co the</li>
-                  <li>khoi luong mo co the</li>
-                  <li>ti le mo li tuong cho co the cua ban</li>
-                  <li>khoi luong mo co the can tang/giam de dat duoc trang thai ly tuong</li>
+                  <li>Loại mỡ cơ thể</li>
+                  <li>Khối lượng mỡ cơ thể</li>
+                  <li>tỉ lệ mỡ lí tưởng cho cơ thể bạn</li>
+                  <li>khối lượng mỡ cần tăng/ giảm để đạt được trạng thái lí tưởng</li>
                 </ul>
               </div>
               <div className="body-fat-variable">
                 <ul>
-                  <li>trung binh</li>
+                  <li>trung bình</li>
                   <li>14%</li>
                   <li>14kg</li>
                   <li className="last">4kg</li>
@@ -48,7 +50,7 @@ function App() {
         </div>
         <div className="button-next">
           <button>
-            <text>TIEP THEO</text>
+            <text>TIẾP THEO</text>
           </button>
         </div>
       </div>
