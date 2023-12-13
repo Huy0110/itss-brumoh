@@ -1,0 +1,8 @@
+.detail-button {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  background-color: #b8b8b8;
+  border-radius: 8px;
+}
