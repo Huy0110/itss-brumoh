@@ -15,6 +15,7 @@ const User = mongoose.model(
     hip: Number,
     neck: Number,
     activity_intensity: Number,
+    is_first_time: Boolean,
     roles: [
       {
         type: mongoose.Schema.Types.ObjectId,
