@@ -89,7 +89,7 @@ exports.createOrUpdateBodyMeasurements = async (req, res) => {
         }
       },
       { new: true }
-    ).select('height weight neck bust waist hip')
+    ).select('height weight neck bust waist hip is_first_time')
 
     if (!updatedUser) {
       return res.status(404).json({ message: 'User not found' })
@@ -105,7 +105,7 @@ exports.createOrUpdateBodyMeasurements = async (req, res) => {
       bodyFatIndex,
       bmr,
       tdee,
-      is_first_time
+      is_first_time: updatedUser.is_first_time
     })
   } catch (error) {
     console.error(error)
