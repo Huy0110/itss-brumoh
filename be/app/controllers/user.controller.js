@@ -84,7 +84,8 @@ exports.createOrUpdateBodyMeasurements = async (req, res) => {
           hip,
           activity_intensity,
           age,
-          gender
+          gender,
+          is_first_time: false
         }
       },
       { new: true }
@@ -103,7 +104,8 @@ exports.createOrUpdateBodyMeasurements = async (req, res) => {
       bodyMeasurements: updatedUser,
       bodyFatIndex,
       bmr,
-      tdee
+      tdee,
+      is_first_time
     })
   } catch (error) {
     console.error(error)
