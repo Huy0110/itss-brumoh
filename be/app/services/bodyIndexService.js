@@ -40,6 +40,18 @@ class BodyIndexService {
         throw new Error('Invalid activity intensity.')
     }
   }
+
+  static determineBodyParamsType(bodyFatIndex) {
+    if (bodyFatIndex < 10) {
+      return '<10'
+    } else if (bodyFatIndex <= 15) {
+      return '10-15'
+    } else if (bodyFatIndex <= 20) {
+      return '15-20'
+    } else {
+      return '>20'
+    }
+  }
 }
 
 module.exports = BodyIndexService
