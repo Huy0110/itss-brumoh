@@ -9,6 +9,7 @@ import BodyParam from './pages/BodyParam'
 import TrainingPage from './pages/TrainingPage'
 import TrainingPlanRec from './pages/TrainingPlanRec'
 import PlanTarget from './pages/PlanTarget'
+import TrainingDetail from './pages/TrainingDetail'
 
 const App = () => {
   return (
@@ -18,8 +19,9 @@ const App = () => {
           <Route element={<Auth path={'login'}>{<BodyParam />}</Auth>} path="/bodyparam" />
           <Route element={<Auth path={'login'}>{<TrainingPage />}</Auth>} path="/training-plan" />
           <Route element={<LoginPage />} path="/login" />
-          <Route element={<BodyFat page = {"002"}/>} path="/bodyfat" />
-          <Route element={<BodyFat page = {"016"}/>} path="/bodyfatv2" />
+          <Route element={<BodyFat page={'002'} />} path="/bodyfat" />
+          <Route element={<BodyFat page={'016'} />} path="/bodyfatv2" />
+          <Route element={<TrainingDetail />} path="/training-detail" />
           <Route element={<TrainingPlanRec />} path="/training-plan-recommend" />
           <Route element={<PlanTarget />} path="/plan-target" />
           <Route element={<Auth path={'login'}>{<Home />}</Auth>} path="home" />
