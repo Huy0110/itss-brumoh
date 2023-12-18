@@ -1,12 +1,12 @@
 import React from 'react'
 import NavBar from '../../components/NavBar'
-import Header from '../../components/Header'
 import './style.css'
+import Header from '../../components/Header'
 
 export default function PlanCreate() {
   return (
     <>
-      <Header goBack={true} text={'Tạo lịch trình cho riêng bạn'} />
+      <Header goBack={true} text={'Lịch trình luyện tập'} />
       <div className="plan-create-content">
         <button className="plan-create-item">
             <h5>APP ĐỀ XUẤT</h5>

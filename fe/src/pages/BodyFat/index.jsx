@@ -1,8 +1,8 @@
 import './style.css'
 import React from 'react'
 import bgImg from '../../assets/bg-img.png'
-import IntroHeader from '../../components/IntroHeader'
 import { useNavigate } from 'react-router-dom'
+import Header from '../../components/Header'
 
 function App() {
   var bodyFatIndex = localStorage.getItem('bodyFatIndex')
@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <IntroHeader goBack={true} text={'KẾT QUẢ'}/>
+        <Header goBack={true} text={'KẾT QUẢ'}/>
         <div className="caculator">
           <div className="bg-img">
             <img src={bgImg} alt="bg" width={420} />
