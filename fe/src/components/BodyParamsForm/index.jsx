@@ -43,8 +43,8 @@ export default function BodyParamsForm() {
   const handleGender = (value) => {
     setGender(value)
   }
-  const validate = (height, weight, neck, bust, waist, hip, activityIntensity, age, gender) => {
-    if (height && weight && neck && bust && waist && hip && activityIntensity && age && gender) return 1
+  const validate = (height, weight, neck, bust, waist, hip, activityIntensity, age) => {
+    if (height && weight && neck && bust && waist && hip && activityIntensity && age) return 1
   }
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -57,8 +57,7 @@ export default function BodyParamsForm() {
         parseInt(waist),
         parseInt(hip),
         parseInt(activityIntensity),
-        parseInt(age),
-        gender
+        parseInt(age)
       )
     )
       try {
@@ -88,8 +87,12 @@ export default function BodyParamsForm() {
         if (tdee) {
           localStorage.setItem('tdee', tdee)
         }
-
-        navigate('/bodyfat')
+        const is_first_time = res?.data?.is_first_time
+        if (is_first_time) {
+          navigate('/bodyfat')
+        } else {
+          navigate('/bodyfatv2')
+        }
       } catch (error) {
         console.error(error?.response?.data?.message)
       }
