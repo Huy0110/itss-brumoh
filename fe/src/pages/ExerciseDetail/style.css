@@ -1,4 +1,4 @@
-.training-container {
+.exercise-container {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -19,34 +19,12 @@
     font-size: 20px;
     font-weight: 500;
     font-family: 'Kanit';
+    margin-bottom: 10px;
   }
 }
 
-.exercise-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.video-container {
   width: 100%;
+  height: 220px;
   margin-bottom: 20px;
-  background-color: transparent;
-  align-items: center;
-}
-
-.exercise-box {
-  display: flex;
-  flex-direction: row;
-  height: 64px;
-  width: 100%;
-  background-color: #b8b8b8;
-  border-radius: 8px;
-  text-align: center;
-  align-items: center;
-}
-
-.left-box {
-  flex: 2;
-}
-
-.right-box {
-  flex: 3;
 }

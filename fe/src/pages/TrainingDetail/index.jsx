@@ -23,7 +23,7 @@ export default function TrainingDetail() {
   return (
     <>
       <Header goBack={true} text={'Lộ trình tập luyện'} />
-      <div className="exercise-container">
+      <div className="training-container">
         <label>Lộ trình</label>
         <div className="exercise-list">
           {exercises.map((exercise, id) => (
