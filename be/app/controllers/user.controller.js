@@ -44,7 +44,9 @@ exports.getMyProfile = async (req, res) => {
 exports.getBodyMeasurements = async (req, res) => {
   try {
     const userId = req.userId
-    const user = await User.findById(userId).select('height weight neck bust waist hip age gender activity_intensity')
+    const user = await User.findById(userId).select(
+      'height weight neck bust waist hip age gender activity_intensity is_first_time'
+    )
 
     if (!user) {
       return res.status(404).json({ message: 'User not found' })
@@ -59,7 +61,7 @@ exports.getBodyMeasurements = async (req, res) => {
     const bmr = BodyIndexService.calculateBMR(user.gender ? 'male' : 'female', user.weight, user.height, user.age)
     const tdee = BodyIndexService.calculateTDEE(bmr, user.activity_intensity)
 
-    res.status(200).json({ bodyMeasurements: user, bodyFatIndex, bmr, tdee })
+    res.status(200).json({ bodyMeasurements: user, bodyFatIndex, bmr, tdee, is_first_time: user.is_first_time })
   } catch (error) {
     console.error(error)
     res.status(500).json({ message: 'Internal Server Error' })
@@ -84,15 +86,20 @@ exports.createOrUpdateBodyMeasurements = async (req, res) => {
           hip,
           activity_intensity,
           age,
-          gender,
-          is_first_time: false
+          gender
         }
       },
       { new: true }
-    ).select('height weight neck bust waist hip is_first_time')
+    )
 
     if (!updatedUser) {
       return res.status(404).json({ message: 'User not found' })
+    }
+
+    const is_first_time = updatedUser.is_first_time
+    if (updatedUser.is_first_time) {
+      updatedUser.is_first_time = false
+      await updatedUser.save()
     }
 
     const bodyFatIndex = BodyIndexService.calculateBodyFatIndex(gender ? 'male' : 'female', neck, waist, hip, height)
@@ -105,7 +112,7 @@ exports.createOrUpdateBodyMeasurements = async (req, res) => {
       bodyFatIndex,
       bmr,
       tdee,
-      is_first_time: updatedUser.is_first_time
+      is_first_time
     })
   } catch (error) {
     console.error(error)
