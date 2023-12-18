@@ -5,7 +5,7 @@ import Header from '../../components/Header'
 import { useNavigate } from 'react-router-dom'
 import NavBar from '../../components/NavBar'
 
-function BodyFat({page}) {
+function BodyFat({ page }) {
   let bodyFatIndex = localStorage.getItem('bodyFatIndex')
   const navigate = useNavigate()
 
