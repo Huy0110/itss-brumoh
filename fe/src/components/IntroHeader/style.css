@@ -1,0 +1,25 @@
+.head-cut {
+  display: flex;
+  height: 20px;
+  width: 450px;
+  background-color: #303030;
+  margin-bottom: 10px;
+}
+
+.intro-header {
+  display: flex;
+  height: 50px;
+  width: inherit;
+  align-items: center;
+  padding-left: 10px;
+}
+.intro-header .title {
+    display: flex;
+    width: 350px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.intro-header .title h5 {
+    color: white;
+}

@@ -11,7 +11,7 @@ export default function TrainingPage() {
     navigate('/training-detail')
   }
   const onClickChange = () => {
-    navigate('/training-change')
+    navigate('/plan-create')
   }
   return (
     <>

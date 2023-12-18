@@ -3,7 +3,19 @@
   gap: 10px;
   width: 100%;
   height: 100%;
-  padding: 30px 15px 30px 15px;
-  display: flex;
+  padding: 0 15px 0px 15px;
+  margin-top: 30px;
   flex-direction: column;
+}
+
+.head-cut {
+  display: flex;
+  height: 20px;
+  width: 450px;
+  background-color: #303030;
+  margin-bottom: 10px;
+}
+
+.title h5{
+  color: white;
 }
