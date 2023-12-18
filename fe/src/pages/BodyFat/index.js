@@ -3,8 +3,9 @@ import React from 'react'
 import bgImg from '../../assets/bg-img.png'
 import Header from '../../components/Header'
 import { useNavigate } from 'react-router-dom'
+import NavBar from '../../components/NavBar'
 
-function App() {
+function BodyFat({ page }) {
   let bodyFatIndex = localStorage.getItem('bodyFatIndex')
   const navigate = useNavigate()
 
@@ -45,11 +46,15 @@ function App() {
           </div>
         </div>
       </div>
-      <button className="button-next" onClick={handleClick}>
-        TIẾP THEO
-      </button>
+      {page === '002' ? (
+        <button className="button-next" onClick={handleClick}>
+          TIẾP THEO
+        </button>
+      ) : (
+        <NavBar />
+      )}
     </>
   )
 }
 
-export default App
+export default BodyFat
