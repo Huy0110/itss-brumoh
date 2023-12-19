@@ -1,0 +1,35 @@
+.daily-exercise-container {
+    width: 450px;
+    height: 720px;
+    
+}
+
+.daily-exercise-container .list-exercise {
+    display: block;
+    height: 640px;
+    overflow-y: scroll;
+}
+
+.daily-exercise-container .list-exercise::-webkit-scrollbar {
+    display: none;
+}
+
+.daily-exercise-container .list-exercise p{
+    color: #ffab2d;
+    font-weight: bold;
+}
+
+.daily-exercise-container .list-exercise li{
+    list-style: none;
+    color: #ffab2d;
+    font-weight: bold;
+}
+
+.daily-exercise-container .list-exercise .exercise {
+    display: block;
+    width: 350px;
+    height: 100px;
+    background-color: bisque;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}

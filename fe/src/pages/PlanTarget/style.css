@@ -8,13 +8,6 @@
   background-size: cover;
 }
 
-.head-cut {
-  display: flex;
-  height: 20px;
-  width: 450px;
-  background-color: #303030;
-  margin-bottom: 10px;
-}
 
 .title {
   margin-bottom: 30px;
@@ -50,7 +43,7 @@
   padding: 0;
   width: 350px;
   height: 150px;
-  margin-bottom: 20px;
+  margin-top: 20px;
   overflow: hidden;
   border-radius: 10px;
 }

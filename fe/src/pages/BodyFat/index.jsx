@@ -12,7 +12,7 @@ function App() {
       navigate('/plan-target')
   }
   return (
-    <div className="App">
+    <>
       <div className="container">
         <Header goBack={true} text={'KẾT QUẢ'}/>
         <div className="caculator">
@@ -51,7 +51,7 @@ function App() {
           </button>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 
