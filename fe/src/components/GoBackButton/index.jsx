@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import IconButton from '@mui/material/IconButton'
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew'
+import IconBack from '../../assets/back.png'
 export default function GoBackButton() {
   const navigate = useNavigate()
 
@@ -10,7 +10,7 @@ export default function GoBackButton() {
   }
   return (
     <IconButton onClick={handleGoBack}>
-      <ArrowBackIosNewIcon />
+      <img src={IconBack} alt="back" />
     </IconButton>
   )
 }

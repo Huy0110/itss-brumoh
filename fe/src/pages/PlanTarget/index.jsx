@@ -3,7 +3,6 @@ import './style.css'
 import plan3 from '../../assets/images/plan3.png'
 import plan2 from '../../assets/images/plan2.png'
 import plan1 from '../../assets/images/plan1.png'
-import Header from '../../components/Header'
 import { useNavigate } from 'react-router-dom'
 
 export default function PlanTarget() {
@@ -14,23 +13,23 @@ export default function PlanTarget() {
   return (
     <>
       <div className="wrapper">
-        <Header goBack={false} text={'Chọn mục tiêu'} />
+        <div className="head-cut"></div>
+        <div className="title">
+          <h5>Chọn mục tiêu</h5>
+        </div>
         <div className="content">
-          <text>Tăng cân</text>
           <button>
-            <img src={plan1} alt="" />
+            <img src={plan1} alt="" width={380} />
           </button>
         </div>
         <div className="content">
-          <text>Giữ cân</text>
           <button>
-            <img src={plan2} alt="" />
+            <img src={plan2} alt="" width={380} />
           </button>
         </div>
         <div className="content">
-          <text>Giảm cân</text>
           <button>
-            <img src={plan3} alt="" />
+            <img src={plan3} alt="" width={380} />
           </button>
         </div>
         <button className="foot" onClick={handleClick}>

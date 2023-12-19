@@ -13,26 +13,6 @@
   align-items: center;
 }
 
-.header {
-  display: flex;
-  height: 50px;
-  width: inherit;
-  align-items: center;
-}
-.header .back-icon {
-  margin-right: 120px;
-}
-.head-cut {
-  display: flex;
-  height: 20px;
-  width: 495px;
-  background-color: #303030;
-  margin-bottom: 10px;
-}
-.header h3 {
-  color: white;
-}
-
 .caculator {
   display: flex;
   flex-direction: column;
@@ -41,11 +21,11 @@
 }
 .bg-img {
   height: 280px;
-  width: 440px;
+  width: 420px;
 }
 .bg {
   height: 270px;
-  width: 440px;
+  width: 420px;
   background-color: #5f5f5f;
   border-radius: 10;
   border-bottom-left-radius: 10px;
@@ -86,7 +66,7 @@
   background-color: #303030;
   margin: 10px 10px 10px 10px;
   border-radius: 10px;
-  width: 420px;
+  width: 400px;
 }
 
 .body-fat-title {
@@ -127,7 +107,7 @@
   margin-top: 10px;
 }
 
-.button-next {
+.button-next button {
   display: flex;
   width: 370px;
   height: 60px;
@@ -137,6 +117,7 @@
   outline: none;
   border-radius: 25px;
   margin-bottom: 15px;
+  border: none;
 }
 
 .button-next text {
