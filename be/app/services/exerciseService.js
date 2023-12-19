@@ -48,8 +48,64 @@ class ExerciseService {
       throw error
     }
   }
-}
 
-module.exports = ExerciseService
+  static async getExerciseDetailByDay(trainingPlanId, day) {
+    try {
+      const trainingSessions = await ExerciseTraining.find({ training_plan_id: trainingPlanId, day: day })
+      const exerciseDetail = []
+
+      await Promise.all(
+        trainingSessions.map(async (session) => {
+          const { exercise_id } = session
+
+          try {
+            const exercise = await Exercise.findById(exercise_id.toString())
+
+            if (exercise) {
+              exerciseDetail.push({
+                name: exercise.name,
+                level: exercise.level,
+                video: exercise.video,
+                description: exercise.description,
+                effectiveness: exercise.effectiveness,
+                type: exercise.type
+              })
+            } else {
+              throw new Error('Failed to find exercise')
+            }
+          } catch (error) {
+            console.error(error)
+            throw error
+          }
+        })
+      )
+
+      return exerciseDetail
+    } catch (error) {
+      console.error(error)
+      throw error
+    }
+  }
+
+  static async cloneExerciseTraining(trainingPlanId, trainingPlanDefaultId) {
+    try {
+      const exerciseTrainingDocs = await ExerciseTraining.find({ training_plan_id: trainingPlanDefaultId })
+
+      const newExerciseTrainingDocs = exerciseTrainingDocs.map((doc) => ({
+        training_plan_id: trainingPlanId,
+        exercise_id: doc.exercise_id,
+        day: doc.day
+      }))
+
+      // Lưu các bản ghi mới vào cơ sở dữ liệu
+      await ExerciseTraining.insertMany(newExerciseTrainingDocs)
+
+      return newExerciseTrainingDocs
+    } catch (error) {
+      console.error(error)
+      throw error
+    }
+  }
+}
 
 module.exports = ExerciseService

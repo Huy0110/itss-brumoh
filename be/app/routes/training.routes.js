@@ -8,6 +8,8 @@ module.exports = function (app) {
   })
 
   app.post('/calculate-training-plan', [authJwt.verifyToken], controller.calculateRecommendTraining)
-  app.get('/get-training-plan/:training_plan_id', [authJwt.verifyToken], controller.getRecommendTraining)
+  app.get('/get-training-plan/:training_plan_id', [authJwt.verifyToken], controller.getRecommendTrainingById)
+  app.get('/get-latest-training-plan-user', [authJwt.verifyToken], controller.getLatestRecommendTrainingByUser)
   app.get('/exercise/:exerciseId', controller.getExersice)
+  app.get('/exercise-detail/:day', [authJwt.verifyToken], controller.getExercisesPerDay)
 }

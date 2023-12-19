@@ -75,6 +75,7 @@ exports.signin = (req, res) => {
 
       res.status(200).send({
         id: user._id,
+        is_first_time: user.is_first_time,
         email: user.email,
         roles: authorities,
         accessToken: token
