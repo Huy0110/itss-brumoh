@@ -5,6 +5,7 @@ const exerciseSchema = new mongoose.Schema({
   level: { type: Number, required: true, min: 1, max: 3 },
   video: { type: String, required: true },
   description: { type: String },
+  effectiveness: { type: String },
   type: { type: Number, enum: [1, 2, 3, 4, 5], required: true }
 })
 
