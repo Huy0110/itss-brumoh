@@ -1,16 +1,12 @@
-.App {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .container {
   display: flex;
   flex-direction: column;
   background-color: #414141;
-  width: 450px;
+  width: 450x;
   height: 742px;
   align-items: center;
+  padding: 0;
+  margin: 0;
 }
 
 .caculator {
@@ -20,7 +16,7 @@
   height: 700px;
 }
 .bg-img {
-  height: 280px;
+  height: 300px;
   width: 420px;
 }
 .bg {
