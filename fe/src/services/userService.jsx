@@ -66,6 +66,19 @@ const USER = {
       .catch((err) => {
         return err
       })
+  },
+
+  getExercisePerDays: async (id) => {
+    return await privateHttp({
+      method: 'GET',
+      url: `/exercise-detail/${id}`
+    })
+      .then((res) => {
+        return res
+      })
+      .catch((err) => {
+        return err
+      })
   }
 }
 

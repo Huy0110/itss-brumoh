@@ -21,15 +21,4 @@
 
 .daily-exercise-container .list-exercise li{
     list-style: none;
-    color: #ffab2d;
-    font-weight: bold;
-}
-
-.daily-exercise-container .list-exercise .exercise {
-    display: block;
-    width: 350px;
-    height: 100px;
-    background-color: bisque;
-    margin-bottom: 20px;
-    border-radius: 10px;
 }
