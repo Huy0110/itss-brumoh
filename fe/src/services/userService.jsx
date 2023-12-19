@@ -68,10 +68,23 @@ const USER = {
       })
   },
 
-  getExercise: async ({id}) => {
+  getExercise: async ({ id }) => {
     return await privateHttp({
       method: 'GET',
-      url: `exercise/${id}`,
+      url: `exercise/${id}`
+    })
+      .then((res) => {
+        return res
+      })
+      .catch((err) => {
+        return err
+      })
+  },
+
+  getTrainingPlan: async () => {
+    return await privateHttp({
+      method: 'GET',
+      url: '/get-latest-training-plan-user'
     })
       .then((res) => {
         return res
