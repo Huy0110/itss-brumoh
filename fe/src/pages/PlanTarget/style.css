@@ -46,6 +46,7 @@
   margin-top: 20px;
   overflow: hidden;
   border-radius: 10px;
+  border: 2px solid #ffab2d;
 }
 .content text {
   position: absolute;
@@ -59,8 +60,20 @@
   bottom: 5px;
 }
 
-.content button:hover {
-  border: 2px solid #ffab2d;
+.contentSelected button{
+  background: transparent;
+  outline: none;
+  border: none;
+  padding: 0;
+  width: 350px;
+  height: 150px;
+  margin-top: 20px;
+  overflow: hidden;
   border-radius: 10px;
-  transition: 0.5s;
+}
+
+.contentSelected button img {
+  position: relative;
+  right: 20px;
+  bottom: 5px;
 }

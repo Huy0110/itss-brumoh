@@ -67,6 +67,22 @@ const USER = {
         return err
       })
   },
+  selectTrainingGoal: async ({goal}) => {
+    try {
+      let result = await privateHttp({
+        method: 'POST',
+        url: '/calculate-training-plan',
+        data: {
+          name: goal,
+        }
+      });
+      console.log('result: ', result);
+      return result;
+    } catch (error) {
+      console.error('Error in selectTrainingGoal:', error);
+      throw error; // rethrow the error to propagate it further if needed
+    }
+  },
 
 <<<<<<< HEAD
   getExercisePerDays: async (id) => {
