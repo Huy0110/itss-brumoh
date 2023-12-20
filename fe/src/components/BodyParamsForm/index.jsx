@@ -87,6 +87,7 @@ export default function BodyParamsForm() {
         if (tdee) {
           localStorage.setItem('tdee', tdee)
         }
+        localStorage.setItem('weight', weight)
         navigate('/bodyfat')
       } catch (error) {
         console.error(error?.response?.data?.message)
