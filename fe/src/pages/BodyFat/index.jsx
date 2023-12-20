@@ -26,6 +26,7 @@ function BodyFat() {
   let displayNeedToDo = Math.abs(Math.round(needToDo * 100) / 100)
   const navigate = useNavigate()
   const handleClick = () => {
+    localStorage.setItem('is_first_time', false)
     navigate('/plan-target')
   }
   return (
