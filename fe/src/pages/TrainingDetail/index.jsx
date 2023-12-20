@@ -2,33 +2,13 @@ import React, { useEffect, useState } from 'react'
 import Header from '../../components/Header'
 import './style.css'
 import USER from '../../services/userService'
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import TypeDetails from '../../utils/constant'
 export default function TrainingDetail() {
   const [exercises, setExercises] = useState([])
   const [goal, setGoal] = useState([])
   const navigate = useNavigate()
-  const typeDetails = [
-    {
-      id: 1,
-      name: 'Ngực'
-    },
-    {
-      id: 2,
-      name: 'Vai'
-    },
-    {
-      id: 3,
-      name: 'Xô'
-    },
-    {
-      id: 4,
-      name: 'Chân'
-    },
-    {
-      id: 5,
-      name: 'Tay'
-    }
-  ]
+  
   useEffect(() => {
     const fetchTrainingPlan = async () => {
       try {
@@ -47,12 +27,9 @@ export default function TrainingDetail() {
   }, [])
 
   const getType = (types) => {
-    if (!types) {
-      types = [1, 2, 3]
-    }
     let typeString = ''
     types.forEach((type, index) => {
-      const typeDetail = typeDetails.find((detail) => detail.id === type)
+      const typeDetail = TypeDetails.find((detail) => detail.id === type)
       if (typeDetail) {
         typeString += typeDetail.name
         if (index < types.length - 1) {
