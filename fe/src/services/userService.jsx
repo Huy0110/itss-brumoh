@@ -76,10 +76,8 @@ const USER = {
           name: goal
         }
       })
-      console.log('result: ', result)
       return result
     } catch (error) {
-      console.error('Error in selectTrainingGoal:', error)
       throw error // rethrow the error to propagate it further if needed
     }
   },

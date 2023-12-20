@@ -1,24 +1,23 @@
 .daily-exercise-container {
-    width: 450px;
-    height: 720px;
-    
+  width: 450px;
+  height: 720px;
 }
 
 .daily-exercise-container .list-exercise {
-    display: block;
-    height: 640px;
-    overflow-y: scroll;
+  display: block;
+  height: 640px;
+  overflow-y: scroll;
 }
 
 .daily-exercise-container .list-exercise::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
-.daily-exercise-container .list-exercise p{
-    color: #ffab2d;
-    font-weight: bold;
+.daily-exercise-container .list-exercise p {
+  color: #ffab2d;
+  font-weight: bold;
 }
 
-.daily-exercise-container .list-exercise li{
-    list-style: none;
+.daily-exercise-container .list-exercise li {
+  list-style: none;
 }

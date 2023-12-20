@@ -25,7 +25,7 @@ const LoginPage = () => {
       if (id) {
         localStorage.setItem('id', id)
       }
-      
+
       localStorage.setItem('is_first_time', is_first_time)
 
       console.log('Login success')

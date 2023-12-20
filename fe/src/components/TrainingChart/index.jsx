@@ -1,12 +1,13 @@
 import React from 'react'
 import { BarChart } from '@mui/x-charts/BarChart'
+import { dayDummy, exercisesDummy } from '../../utils/constant'
 import './style.css'
-export default function TrainingChart({exercises}) {
-  let day = [1, 2, 3, 4, 5, 6, 7]
-  let exerciseCount = [0, 0, 0, 0, 0, 0, 0]
-  if (exercises && exercises.length>0) {
+export default function TrainingChart({ exercises }) {
+  let day = dayDummy
+  let exerciseCount = exercisesDummy
+  if (exercises && exercises.length > 0) {
     day = exercises.map((item) => item.day)
-    exerciseCount= exercises.map((item) => item.exerciseCount)
+    exerciseCount = exercises.map((item) => item.exerciseCount)
   }
   return (
     <div className="chart-container">

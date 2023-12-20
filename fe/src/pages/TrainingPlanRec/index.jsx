@@ -11,13 +11,13 @@ export default function TrainingPlanRec() {
   console.log(goal)
   const handleAgree = () => {
     try {
-      const res = USER.selectTrainingGoal({goal})
+      const res = USER.selectTrainingGoal({ goal })
       console.log(res)
     } catch (error) {
       console.error(error?.response?.data?.message)
     }
     navigate('/training-plan')
-  } 
+  }
   const handleCancel = () => {
     navigate('/')
   }

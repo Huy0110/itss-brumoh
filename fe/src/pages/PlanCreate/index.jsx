@@ -9,10 +9,10 @@ export default function PlanCreate() {
       <Header goBack={true} text={'Lịch trình luyện tập'} />
       <div className="plan-create-content">
         <button className="plan-create-item">
-            <h5>APP ĐỀ XUẤT</h5>
+          <h5>APP ĐỀ XUẤT</h5>
         </button>
         <button className="plan-create-item">
-            <h5>TỰ TẠO</h5>
+          <h5>TỰ TẠO</h5>
         </button>
       </div>
       <NavBar />

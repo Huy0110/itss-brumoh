@@ -34,7 +34,7 @@ export default function DailyExercise() {
         <p>Danh sách bài tập</p>
         {exerciseDetail.map((element) => (
           <li>
-            <Exercise title={element.name} description={element.description} id={element._id}/>
+            <Exercise title={element.name} description={element.description} id={element._id} />
           </li>
         ))}
       </ul>

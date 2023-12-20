@@ -62,16 +62,15 @@ function BodyFat() {
             </div>
           </div>
         </div>
-        {is_first_time === 'true' ?
-          (<div className="button-next">
+        {is_first_time === 'true' ? (
+          <div className="button-next">
             <button onClick={handleClick}>
               <text>TIẾP THEO</text>
             </button>
-          </div>)
-          :(
-            <NavBar/>
-          )
-        }
+          </div>
+        ) : (
+          <NavBar />
+        )}
       </div>
     </>
   )

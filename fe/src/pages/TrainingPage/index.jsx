@@ -38,7 +38,7 @@ export default function TrainingPage() {
   return (
     <>
       <Header goBack={true} text={'Lịch trình luyện tập'} />
-      <TrainingChart exercises={exercises}/>
+      <TrainingChart exercises={exercises} />
       <button className="detail-button" onClick={onClickDetail}>
         <h4>Lộ trình tập luyện</h4>
         <span>Bấm để xem chi tiết</span>
