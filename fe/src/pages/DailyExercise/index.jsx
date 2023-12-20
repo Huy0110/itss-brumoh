@@ -11,7 +11,7 @@ export default function DailyExercise() {
   const currentPath = location.pathname
   var dayCount = currentPath.split('/')[2]
   dayCount = 1
-  const [exerciseDetail, setExerciseDetail] = useState()
+  const [exerciseDetail, setExerciseDetail] = useState([])
   useEffect(() => {
     const fetchExercise = async () => {
       try {
@@ -28,23 +28,21 @@ export default function DailyExercise() {
     fetchExercise()
   }, [dayCount])
   console.log(exerciseDetail)
+  let exerciseDetailDummy = [
+    { title: 'Vai 3', description: 'vai trước' },
+    { title: 'Nguc 2', description: 'Phát triển cơ ngực' },
+    { title: 'Xo 1', description: 'toàn bộ phần lưng' },
+  ]
   return (
     <div className="daily-exercise-container">
       <Header goBack={true} text={`Ngày ${dayCount}`} />
       <ul className="list-exercise">
         <p>Danh sách bài tập</p>
-        <li>
-          <Exercise title={'a'} />
-        </li>
-        <li>
-          <Exercise title={'b'} />
-        </li>
-        <li>
-          <Exercise title={'c'} />
-        </li>
-        <li>
-          <Exercise title={'d'} />
-        </li>
+        {exerciseDetailDummy.map((element) => (
+          <li>
+            <Exercise title={element.title} description={element.description}/>
+          </li>
+        ))}
       </ul>
     </div>
   )
