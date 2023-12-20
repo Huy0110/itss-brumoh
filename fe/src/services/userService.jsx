@@ -68,6 +68,12 @@ const USER = {
       })
   },
 
+<<<<<<< HEAD
+  getExercisePerDays: async (id) => {
+    return await privateHttp({
+      method: 'GET',
+      url: `/exercise-detail/${id}`
+=======
   getExercise: async ({ id }) => {
     return await privateHttp({
       method: 'GET',
@@ -85,6 +91,7 @@ const USER = {
     return await privateHttp({
       method: 'GET',
       url: '/get-latest-training-plan-user'
+>>>>>>> origin
     })
       .then((res) => {
         return res

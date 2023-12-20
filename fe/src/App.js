@@ -29,7 +29,7 @@ const App = () => {
           <Route element={<TrainingPlanRec />} path="/training-plan-recommend" />
           <Route element={<PlanTarget />} path="/plan-target" />
           <Route element={<PlanCreate />} path="/plan-create" />
-          <Route element={<DailyExercise />} path="/daily-exercise" />
+          <Route element={<DailyExercise />} path="/daily-exercise/:id" />
           <Route element={<Auth path={'login'}>{<Home />}</Auth>} path="home" />
           <Route element={<Auth path={'login'}>{<Home />}</Auth>} path="/" />
         </Route>
