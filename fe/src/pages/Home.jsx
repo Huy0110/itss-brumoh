@@ -8,7 +8,7 @@ export const Home = () => {
     if (is_first_time && is_first_time === 'true') {
       navigate('/bodyparam')
     }
-  }, [])
+  }, [navigate])
   return (
     <>
       Home

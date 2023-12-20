@@ -2,7 +2,7 @@ import React from 'react'
 import Header from '../../components/Header'
 import './style.css'
 import { useNavigate } from 'react-router-dom'
-import TypeDetails from '../../utils/constant'
+import { TypeDetails } from '../../utils/constant'
 
 export default function TrainingDetail() {
   const exercises = JSON.parse(localStorage.getItem('exercises'))
