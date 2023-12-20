@@ -63,6 +63,7 @@ class ExerciseService {
 
             if (exercise) {
               exerciseDetail.push({
+                _id: exercise._id,
                 name: exercise.name,
                 level: exercise.level,
                 video: exercise.video,
