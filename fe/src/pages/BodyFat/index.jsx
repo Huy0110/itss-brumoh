@@ -5,8 +5,23 @@ import { useNavigate } from 'react-router-dom'
 import Header from '../../components/Header'
 
 function App() {
-  var bodyFatIndex = localStorage.getItem('bodyFatIndex')
+  let bodyFatIndex = localStorage.getItem('bodyFatIndex')
+  let weight = localStorage.getItem('weight')*10
+  let bodyFatWeight = bodyFatIndex/100*weight
+  let bodyFatType = ''
+  let needToDo = bodyFatWeight - 14/100*weight
+  let advise = ''
+  if (needToDo >= 0) advise = 'khối lượng mỡ cần giảm để đạt được trạng thái lí tưởng'
+  if (needToDo < 0) advise = 'khối lượng mỡ cần tăng để đạt được trạng thái lí tưởng'
+
+  if ( bodyFatIndex < 10) bodyFatIndex = 'Gầy'
+  if (bodyFatIndex >= 10 && bodyFatIndex < 15 ) bodyFatType = 'Trung bình'
+  if (bodyFatIndex >= 15 && bodyFatIndex < 20 ) bodyFatType = 'Ngọt nước'
+  if (bodyFatIndex >= 20) bodyFatType = 'Múp'
+
   bodyFatIndex = Math.round(bodyFatIndex * 100) / 100
+  bodyFatWeight = Math.round(bodyFatWeight * 100) / 100
+  let displayNeedToDo = Math.abs(Math.round(needToDo * 100) / 100)
   const navigate = useNavigate()
   const handleClick = () => {
       navigate('/plan-target')
@@ -31,15 +46,15 @@ function App() {
                   <li>Loại mỡ cơ thể</li>
                   <li>Khối lượng mỡ cơ thể</li>
                   <li>tỉ lệ mỡ lí tưởng cho cơ thể bạn</li>
-                  <li>khối lượng mỡ cần tăng/ giảm để đạt được trạng thái lí tưởng</li>
+                  <li>{advise}</li>
                 </ul>
               </div>
               <div className="body-fat-variable">
                 <ul>
-                  <li>trung bình</li>
+                  <li>{bodyFatType}</li>
+                  <li>{bodyFatWeight}kg</li>
                   <li>14%</li>
-                  <li>14kg</li>
-                  <li className="last">4kg</li>
+                  <li className="last">{displayNeedToDo}kg</li>
                 </ul>
               </div>
             </div>

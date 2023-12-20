@@ -21,6 +21,7 @@ export default function BodyParamsForm() {
   }
   const handleWeight = (value) => {
     setWeight(value)
+    localStorage.setItem('weight', weight)
   }
   const handleHeight = (value) => {
     setHeight(value)
