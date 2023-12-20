@@ -28,13 +28,13 @@ exports.calculateRecommendTraining = async (req, res) => {
     const bodyParams = await BodyParams.findOne({ type: BodyIndexService.determineBodyParamsType(bodyFatIndex) })
 
     if (!bodyParams) {
-      throw new Error('Failed to find bodyParams')
+      return res.status(401).json({ message: 'No body params' })
     }
 
-    const goal = await Goal.findOne({ name })
+    const goal = await Goal.findOne({ name: name.toLowerCase() })
 
     if (!goal) {
-      throw new Error('Failed to find goal')
+      return res.status(401).json({ message: 'No goal' })
     }
 
     const trainingPlan = await TrainingPlan.findOne({
@@ -115,7 +115,7 @@ exports.getLatestRecommendTrainingByUser = async (req, res) => {
   try {
     const userId = req.userId
 
-    const trainingPlans = await TrainingPlan.find({ user_id: userId }).sort({ createdAt: -1 })
+    const trainingPlans = await TrainingPlan.find({ user_id: userId }).sort({ _id: -1 })
 
     if (!trainingPlans || trainingPlans.length === 0) {
       return res.status(404).json({ message: 'No training plan' })
@@ -148,7 +148,7 @@ exports.getExercisesPerDay = async (req, res) => {
     const userId = req.userId
     const day = req.params.day
 
-    const trainingPlans = await TrainingPlan.find({ user_id: userId }).sort({ createdAt: -1 })
+    const trainingPlans = await TrainingPlan.find({ user_id: userId }).sort({ _id: -1 })
 
     if (!trainingPlans || trainingPlans.length === 0) {
       return res.status(404).json({ message: 'No training plan' })
@@ -166,7 +166,7 @@ exports.getExercisesPerDay = async (req, res) => {
     res.status(200).json(response)
   } catch (error) {
     console.error(error)
-    res.status(500).json({ message: 'Lỗi Server Nội Bộ' })
+    res.status(500).json({ message: 'Internal Server Error' })
   }
 }
 
