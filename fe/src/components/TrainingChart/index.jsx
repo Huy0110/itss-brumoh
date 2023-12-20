@@ -1,25 +1,33 @@
 import React from 'react'
 import { BarChart } from '@mui/x-charts/BarChart'
+import { dayDummy, exercisesDummy } from '../../utils/constant'
 import './style.css'
-export default function TrainingChart() {
+export default function TrainingChart({ exercises }) {
+  let day = dayDummy
+  let exerciseCount = exercisesDummy
+  if (exercises && exercises.length > 0) {
+    day = exercises.map((item) => item.day)
+    exerciseCount = exercises.map((item) => item.exerciseCount)
+  }
   return (
     <div className="chart-container">
       <BarChart
         xAxis={[
           {
+            label: 'Ngày',
             id: 'day',
-            data: ['Ngày 1', 'Ngày 2', 'Ngày 3', 'Ngày 4', 'Ngày 5', 'Ngày 6', 'Ngày 7'],
+            data: day,
             scaleType: 'band'
           }
         ]}
         yAxis={[
           {
-            label: 'Bài tập'
+            label: 'Số bài tập'
           }
         ]}
         series={[
           {
-            data: [2, 5, 3, 4, 4, 2, 7]
+            data: exerciseCount
           }
         ]}
       />

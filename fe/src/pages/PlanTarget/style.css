@@ -8,7 +8,6 @@
   background-size: cover;
 }
 
-
 .title {
   margin-bottom: 30px;
 }
@@ -51,7 +50,6 @@
 .content text {
   position: absolute;
   color: white;
-
 }
 
 .content button img {
@@ -60,7 +58,7 @@
   bottom: 5px;
 }
 
-.contentSelected button{
+.contentSelected button {
   background: transparent;
   outline: none;
   border: none;

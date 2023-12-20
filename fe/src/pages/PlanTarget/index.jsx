@@ -27,18 +27,18 @@ export default function PlanTarget() {
   return (
     <>
       <div className="wrapper">
-        <Header goBack={true} text={'Chọn mục tiêu'}/>
-        <div className={goal==='Tăng Cân'?'content':'contentSelected'}>
+        <Header goBack={true} text={'Chọn mục tiêu'} />
+        <div className={goal === 'Tăng Cân' ? 'content' : 'contentSelected'}>
           <button onClick={handleChosenPlan1}>
             <img src={plan1} alt="" width={380} />
           </button>
         </div>
-        <div className={goal==='Giữ Cân'?'content':'contentSelected'}>
+        <div className={goal === 'Giữ Cân' ? 'content' : 'contentSelected'}>
           <button onClick={handleChosenPlan2}>
             <img src={plan2} alt="" width={380} />
           </button>
         </div>
-        <div className={goal==='Giảm Cân'?'content':'contentSelected'}>
+        <div className={goal === 'Giảm Cân' ? 'content' : 'contentSelected'}>
           <button onClick={handleChosenPlan3}>
             <img src={plan3} alt="" width={380} />
           </button>

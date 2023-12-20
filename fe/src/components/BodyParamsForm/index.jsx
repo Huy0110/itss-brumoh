@@ -21,7 +21,6 @@ export default function BodyParamsForm() {
   }
   const handleWeight = (value) => {
     setWeight(value)
-    localStorage.setItem('weight', weight)
   }
   const handleHeight = (value) => {
     setHeight(value)
@@ -88,12 +87,8 @@ export default function BodyParamsForm() {
         if (tdee) {
           localStorage.setItem('tdee', tdee)
         }
-        const is_first_time = res?.data?.is_first_time
-        if (is_first_time) {
-          navigate('/bodyfat')
-        } else {
-          navigate('/bodyfatv2')
-        }
+        localStorage.setItem('weight', weight)
+        navigate('/bodyfat')
       } catch (error) {
         console.error(error?.response?.data?.message)
       }
