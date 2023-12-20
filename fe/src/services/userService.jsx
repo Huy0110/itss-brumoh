@@ -67,29 +67,35 @@ const USER = {
         return err
       })
   },
-  selectTrainingGoal: async ({goal}) => {
+  selectTrainingGoal: async ({ goal }) => {
     try {
       let result = await privateHttp({
         method: 'POST',
         url: '/calculate-training-plan',
         data: {
-          name: goal,
+          name: goal
         }
-      });
-      console.log('result: ', result);
-      return result;
+      })
+      console.log('result: ', result)
+      return result
     } catch (error) {
-      console.error('Error in selectTrainingGoal:', error);
-      throw error; // rethrow the error to propagate it further if needed
+      console.error('Error in selectTrainingGoal:', error)
+      throw error // rethrow the error to propagate it further if needed
     }
   },
 
-<<<<<<< HEAD
   getExercisePerDays: async (id) => {
     return await privateHttp({
       method: 'GET',
       url: `/exercise-detail/${id}`
-=======
+    })
+      .then((res) => {
+        return res
+      })
+      .catch((err) => {
+        return err
+      })
+  },
   getExercise: async ({ id }) => {
     return await privateHttp({
       method: 'GET',
@@ -107,7 +113,6 @@ const USER = {
     return await privateHttp({
       method: 'GET',
       url: '/get-latest-training-plan-user'
->>>>>>> origin
     })
       .then((res) => {
         return res

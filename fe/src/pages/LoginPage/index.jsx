@@ -17,7 +17,7 @@ const LoginPage = () => {
       console.log('res: ', res)
       const token = res?.data?.accessToken
       const id = res?.data?.id
-
+      const is_first_time = res?.data?.is_first_time
       if (token) {
         localStorage.setItem('token', token)
       }
@@ -25,6 +25,8 @@ const LoginPage = () => {
       if (id) {
         localStorage.setItem('id', id)
       }
+      
+      localStorage.setItem('is_first_time', is_first_time)
 
       console.log('Login success')
       navigate('/home') // Sử dụng hook navigate để chuyển hướng đến '/home'

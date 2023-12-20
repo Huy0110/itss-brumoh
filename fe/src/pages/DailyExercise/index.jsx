@@ -9,8 +9,7 @@ import Exercise from '../../components/Excercise'
 export default function DailyExercise() {
   const location = useLocation()
   const currentPath = location.pathname
-  var dayCount = currentPath.split('/')[2]
-  dayCount = 1
+  const dayCount = currentPath.split('/')[2]
   const [exerciseDetail, setExerciseDetail] = useState([])
   useEffect(() => {
     const fetchExercise = async () => {
@@ -28,19 +27,14 @@ export default function DailyExercise() {
     fetchExercise()
   }, [dayCount])
   console.log(exerciseDetail)
-  let exerciseDetailDummy = [
-    { title: 'Vai 3', description: 'vai trước' },
-    { title: 'Nguc 2', description: 'Phát triển cơ ngực' },
-    { title: 'Xo 1', description: 'toàn bộ phần lưng' },
-  ]
   return (
     <div className="daily-exercise-container">
       <Header goBack={true} text={`Ngày ${dayCount}`} />
       <ul className="list-exercise">
         <p>Danh sách bài tập</p>
-        {exerciseDetailDummy.map((element) => (
+        {exerciseDetail.map((element) => (
           <li>
-            <Exercise title={element.title} description={element.description}/>
+            <Exercise title={element.name} description={element.description} id={element._id}/>
           </li>
         ))}
       </ul>

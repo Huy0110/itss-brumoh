@@ -1,30 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Header from '../../components/Header'
 import './style.css'
-import USER from '../../services/userService'
 import { useNavigate } from 'react-router-dom'
 import TypeDetails from '../../utils/constant'
+
 export default function TrainingDetail() {
-  const [exercises, setExercises] = useState([])
-  const [goal, setGoal] = useState([])
+  const exercises = JSON.parse(localStorage.getItem('exercises'))
+  const goal = JSON.parse(localStorage.getItem('goal'))
   const navigate = useNavigate()
-  
-  useEffect(() => {
-    const fetchTrainingPlan = async () => {
-      try {
-        const res = await USER.getTrainingPlan()
-        if (res?.data?.goalDetails) {
-          setGoal(res?.data?.goalDetails)
-        }
-        if (res?.data?.exerciseOverall) {
-          setExercises(res?.data?.exerciseOverall)
-        }
-      } catch (error) {
-        console.error(error?.response?.data?.message)
-      }
-    }
-    fetchTrainingPlan()
-  }, [])
 
   const getType = (types) => {
     let typeString = ''
@@ -50,7 +33,7 @@ export default function TrainingDetail() {
         <label>Lộ trình</label>
         <div className="exercise-list">
           {exercises.map((exercise, id) => (
-            <button className="exercise-box" onClick={handleClick(exercise.day)}>
+            <button className="exercise-box" onClick={() => handleClick(exercise.day)}>
               <div className="left-box">Ngày {exercise.day}</div>
               <div className="right-box">{getType(exercise.type)}</div>
             </button>
