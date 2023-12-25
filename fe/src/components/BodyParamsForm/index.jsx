@@ -89,6 +89,7 @@ export default function BodyParamsForm({ initBody }) {
       }
       return 1
     }
+    return 0
   }
   const handleSubmit = async (e) => {
     e.preventDefault()
