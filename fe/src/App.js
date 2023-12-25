@@ -13,6 +13,7 @@ import TrainingDetail from './pages/TrainingDetail'
 import ExerciseDetail from './pages/ExerciseDetail'
 import PlanCreate from './pages/PlanCreate'
 import DailyExercise from './pages/DailyExercise'
+import CreateDailyExercises from './pages/CreateDailyExercises'
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
           <Route element={<PlanTarget />} path="/plan-target" />
           <Route element={<PlanCreate />} path="/plan-create" />
           <Route element={<DailyExercise />} path="/daily-exercise/:id" />
+          <Route element={<CreateDailyExercises />} path="/create-daily-exercises" />
           <Route element={<Auth path={'login'}>{<Home />}</Auth>} path="home" />
           <Route element={<Auth path={'login'}>{<Home />}</Auth>} path="/" />
         </Route>
