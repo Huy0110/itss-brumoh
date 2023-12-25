@@ -10,6 +10,7 @@ export default function PlanTarget() {
   const navigate = useNavigate()
   let [goal, setGoal] = useState('')
   const handleClick = () => {
+    localStorage.setItem('change_plan', false)
     navigate('/training-plan-recommend')
   }
   const handleChosenPlan1 = () => {
@@ -21,7 +22,6 @@ export default function PlanTarget() {
   const handleChosenPlan3 = () => {
     setGoal('Giảm Cân')
   }
-  console.log(goal)
   localStorage.setItem('trainingGoal', goal)
 
   return (

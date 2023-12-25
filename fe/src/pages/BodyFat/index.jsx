@@ -8,6 +8,7 @@ import NavBar from '../../components/NavBar'
 function BodyFat() {
   let bodyFatIndex = localStorage.getItem('bodyFatIndex')
   const is_first_time = localStorage.getItem('is_first_time')
+  const change_plan = localStorage.getItem('change_plan')
   let weight = localStorage.getItem('weight')
   let bodyFatWeight = (bodyFatIndex / 100) * weight
   let bodyFatType = ''
@@ -63,7 +64,7 @@ function BodyFat() {
             </div>
           </div>
         </div>
-        {is_first_time === 'true' ? (
+        {(change_plan && change_plan === 'true') || is_first_time === 'true' ? (
           <div className="button-next">
             <button onClick={handleClick}>
               <text>TIẾP THEO</text>

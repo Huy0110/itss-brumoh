@@ -4,8 +4,10 @@ import { useNavigate } from 'react-router-dom'
 import './style.css'
 import { Input } from 'antd'
 import USER from '../../services/userService'
+import Box from '@mui/material/Box'
+import Modal from '@mui/material/Modal'
 
-export default function BodyParamsForm() {
+export default function BodyParamsForm({ initBody }) {
   const [gender, setGender] = useState(true)
   const [age, setAge] = useState(null)
   const [weight, setWeight] = useState(null)
@@ -16,6 +18,11 @@ export default function BodyParamsForm() {
   const [bust, setBust] = useState(null)
   const [activityIntensity, setActivityIntensity] = useState(null)
   const navigate = useNavigate()
+  const change_plan = localStorage.getItem('change_plan')
+  const [open, setOpen] = useState(false)
+  const handleOpen = () => setOpen(true)
+  const handleClose = () => setOpen(false)
+
   const handleAge = (value) => {
     setAge(value)
   }
@@ -43,13 +50,51 @@ export default function BodyParamsForm() {
   const handleGender = (value) => {
     setGender(value)
   }
-  const validate = (height, weight, neck, bust, waist, hip, activityIntensity, age) => {
-    if (height && weight && neck && bust && waist && hip && activityIntensity && age) return 1
+  const check = (height, weight, neck, bust, waist, hip, activityIntensity, age) => {
+    if (
+      height &&
+      height > 0 &&
+      weight &&
+      weight > 0 &&
+      neck &&
+      neck > 0 &&
+      bust &&
+      bust > 0 &&
+      waist &&
+      waist > 0 &&
+      hip &&
+      hip > 0 &&
+      activityIntensity &&
+      activityIntensity >= 0 &&
+      activityIntensity <= 7 &&
+      age &&
+      age > 0
+    ) {
+      if (
+        change_plan === 'true' &&
+        !(
+          height !== initBody.height ||
+          weight !== initBody.weight ||
+          neck !== initBody.neck ||
+          bust !== initBody.bust ||
+          waist !== initBody.waist ||
+          hip !== initBody.hip ||
+          activityIntensity !== initBody.activity_intensity ||
+          age !== initBody.age ||
+          gender !== initBody.gender
+        )
+      ) {
+        handleOpen()
+        return 0
+      }
+      return 1
+    }
+    return 0
   }
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (
-      validate(
+      check(
         parseInt(height),
         parseInt(weight),
         parseInt(neck),
@@ -59,7 +104,7 @@ export default function BodyParamsForm() {
         parseInt(activityIntensity),
         parseInt(age)
       )
-    )
+    ) {
       try {
         const res = await USER.createOrUpdateBodyMeasurements({
           gender: gender,
@@ -92,6 +137,7 @@ export default function BodyParamsForm() {
       } catch (error) {
         console.error(error?.response?.data?.message)
       }
+    }
   }
   return (
     <>
@@ -124,6 +170,14 @@ export default function BodyParamsForm() {
           TIẾP THEO
         </button>
       </form>
+      <Modal open={change_plan === 'true' && open} onClose={handleClose}>
+        <Box className="body-params-modal">
+          <span>Chỉ số của bạn chưa có sự thay đổi, bạn hãy cập nhật chỉ số trước</span>
+          <button className="btn-modal-close" onClick={handleClose}>
+            OK
+          </button>
+        </Box>
+      </Modal>
     </>
   )
 }
