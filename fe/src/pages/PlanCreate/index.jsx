@@ -10,6 +10,9 @@ export default function PlanCreate() {
     localStorage.setItem('change_plan', true)
     navigate('/bodyparam')
   }
+  const handleCreatePlan = () => {
+    navigate('/create-daily-exercises')
+  }
   return (
     <>
       <Header goBack={true} text={'Lịch trình luyện tập'} />
@@ -17,7 +20,7 @@ export default function PlanCreate() {
         <button className="plan-create-item" onClick={() => handleAppRec()}>
           <h5>APP ĐỀ XUẤT</h5>
         </button>
-        <button className="plan-create-item">
+        <button className="plan-create-item" onClick={() => handleCreatePlan()}>
           <h5>TỰ TẠO</h5>
         </button>
       </div>
