@@ -12,4 +12,6 @@ module.exports = function (app) {
   app.get('/get-latest-training-plan-user', [authJwt.verifyToken], controller.getLatestRecommendTrainingByUser)
   app.get('/exercise/:exerciseId', controller.getExersice)
   app.get('/exercise-detail/:day', [authJwt.verifyToken], controller.getExercisesPerDay)
+  app.get('/exercise-by-type', controller.getExerciseByType)
+  app.post('/save-training-plan', [authJwt.verifyToken], controller.saveTrainingPlan)
 }

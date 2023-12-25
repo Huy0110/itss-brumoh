@@ -8,6 +8,7 @@ const BodyParams = db.body_param
 const TrainingPlan = db.training_plan
 const Exercise = db.exercise
 const constants = require('../constants')
+const ExerciseTraining = require('../models/exerciseTraining.model')
 
 const adminId = constants.ADMIN_ID
 
@@ -181,6 +182,87 @@ exports.getExersice = async (req, res) => {
     }
 
     res.status(200).json(exercise)
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({ message: 'Internal Server Error' })
+  }
+}
+
+exports.getExerciseByType = async (req, res) => {
+  try {
+    const exerciseByType = await Exercise.aggregate([
+      {
+        $group: {
+          _id: '$type',
+          exercises: { $push: '$$ROOT' }
+        }
+      },
+      {
+        $project: {
+          _id: 0,
+          type: '$_id',
+          exercises: 1
+        }
+      }
+    ])
+
+    res.status(200).json(exerciseByType)
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({ message: 'Internal Server Error' })
+  }
+}
+
+exports.saveTrainingPlan = async (req, res) => {
+  try {
+    const userId = req.userId
+    const exercisesByDay = req.body
+
+    const user = await User.findById(userId)
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' })
+    }
+
+    const bodyFatIndex = BodyIndexService.calculateBodyFatIndex(
+      user.gender ? 'male' : 'female',
+      user.neck,
+      user.waist,
+      user.hip,
+      user.height
+    )
+
+    const bodyParams = await BodyParams.findOne({ type: BodyIndexService.determineBodyParamsType(bodyFatIndex) })
+
+    const newTrainingPlan = new TrainingPlan({
+      level: 1,
+      body_params_id: bodyParams._id,
+      user_id: userId
+    })
+
+    const savedTrainingPlan = await newTrainingPlan.save()
+
+    const exercisesToSave = []
+
+    for (const day in exercisesByDay) {
+      if (exercisesByDay.hasOwnProperty(day)) {
+        const exerciseIds = exercisesByDay[day]
+
+        for (const exerciseId of exerciseIds) {
+          const newExerciseTraining = new ExerciseTraining({
+            training_plan_id: savedTrainingPlan._id,
+            exercise_id: exerciseId,
+            day: day
+          })
+
+          exercisesToSave.push(newExerciseTraining.save())
+        }
+      }
+    }
+
+    await Promise.all(exercisesToSave)
+
+    res.status(201).json({ message: 'Training plan and exercises saved successfully.' })
   } catch (error) {
     console.error(error)
     res.status(500).json({ message: 'Internal Server Error' })
