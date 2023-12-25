@@ -34,6 +34,19 @@ const USER = {
       })
   },
 
+  getBody: async () => {
+    return await privateHttp({
+      method: 'GET',
+      url: 'body'
+    })
+      .then((res) => {
+        return res
+      })
+      .catch((err) => {
+        return err
+      })
+  },
+
   createOrUpdateBodyMeasurements: async ({
     height,
     weight,

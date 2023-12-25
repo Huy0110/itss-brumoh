@@ -8,7 +8,6 @@ import USER from '../../services/userService'
 export default function TrainingPlanRec() {
   const navigate = useNavigate()
   const goal = localStorage.getItem('trainingGoal')
-  console.log(goal)
   const handleAgree = () => {
     try {
       const res = USER.selectTrainingGoal({ goal })

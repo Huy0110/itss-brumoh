@@ -5,6 +5,8 @@
 
 .daily-exercise-container .list-exercise {
   display: block;
+  padding-left: 2rem;
+  padding-right: 2rem;
   height: 640px;
   overflow-y: scroll;
 }
