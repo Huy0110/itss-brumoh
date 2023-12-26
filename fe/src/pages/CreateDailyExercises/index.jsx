@@ -21,7 +21,9 @@ export default function CreateDailyExercises() {
           <img src={iconAdd} alt="" width={80} />
         </button>
       </div>
-      <button className="create-exercise-done" onClick={handleDone()}>Hoàn thành</button>
+      <button className="create-exercise-done" onClick={handleDone()}>
+        Hoàn thành
+      </button>
       <NavBar />
     </>
   )
