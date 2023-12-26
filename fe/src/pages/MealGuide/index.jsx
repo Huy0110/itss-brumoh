@@ -4,9 +4,38 @@ import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
 import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
-import Typography from '@mui/material/Typography';
 import Header from '../../components/Header'
 import './style.css'
+
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+
+function createData(name, unit, calories) {
+  return { name, unit, calories };
+}
+
+const breakfast = [
+  createData('Phở bò', 'Bát', 350),
+  createData('Ngũ cốc', '500g', 350),
+  createData('Sữa', "Cốc", 200),
+  createData('Bánh', "Cái", 100),
+];
+
+const lunch = [
+  createData('Salad gà', 'Suất', 350),
+  createData('Sữa', 'Cốc', 200),
+  createData('Táo', "Quả", 50),
+];
+
+const dinner = [
+  createData('Beefsteak', 'Miếng', 350),
+  createData('Nước hoa quả', 'Cốc', 50),
+];
 
 const Accordion = styled(
   (props) => (
@@ -62,25 +91,63 @@ export default function MealGuide() {
           <text>Bữa sáng</text>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor
-            sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-            sit amet blandit leo lobortis eget.
-          </Typography>
+        <TableContainer component={Paper}>
+            <Table sx={{ minWidth: 355 }} aria-label="simple table">
+              <TableHead>
+                <TableRow>
+                  <TableCell>Thực phẩm</TableCell>
+                  <TableCell>Đơn vị</TableCell>
+                  <TableCell>Kcal</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {breakfast.map((row) => (
+                  <TableRow
+                    key={row.name}
+                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                  >
+                    <TableCell component="th" scope="row">
+                      {row.name}
+                    </TableCell>
+                    <TableCell>{row.unit}</TableCell>
+                    <TableCell>{row.calories}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
         </AccordionDetails>
       </Accordion>
-      <Accordion className="accordions" expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+      <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
         <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
         <text>Bữa trưa</text>
         </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor
-            sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-            sit amet blandit leo lobortis eget.
-          </Typography>
+        <AccordionDetails >
+        <TableContainer component={Paper}>
+            <Table sx={{ minWidth: 355 }} aria-label="simple table">
+              <TableHead>
+                <TableRow>
+                  <TableCell>Thực phẩm</TableCell>
+                  <TableCell>Đơn vị</TableCell>
+                  <TableCell>Kcal</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {lunch.map((row) => (
+                  <TableRow
+                    key={row.name}
+                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                  >
+                    <TableCell component="th" scope="row">
+                      {row.name}
+                    </TableCell>
+                    <TableCell>{row.unit}</TableCell>
+                    <TableCell>{row.calories}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
         </AccordionDetails>
       </Accordion>
       <Accordion className="accordions" expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
@@ -88,12 +155,31 @@ export default function MealGuide() {
         <text>Bữa tối</text>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor
-            sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-            sit amet blandit leo lobortis eget.
-          </Typography>
+        <TableContainer component={Paper}>
+            <Table sx={{ minWidth: 355 }} aria-label="simple table">
+              <TableHead>
+                <TableRow>
+                  <TableCell>Thực phẩm</TableCell>
+                  <TableCell>Đơn vị</TableCell>
+                  <TableCell>Kcal</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {dinner.map((row) => (
+                  <TableRow
+                    key={row.name}
+                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                  >
+                    <TableCell component="th" scope="row">
+                      {row.name}
+                    </TableCell>
+                    <TableCell>{row.unit}</TableCell>
+                    <TableCell>{row.calories}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
         </AccordionDetails>
       </Accordion>
     </div>
