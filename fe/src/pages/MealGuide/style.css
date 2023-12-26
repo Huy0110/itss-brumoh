@@ -1,0 +1,77 @@
+.meal-guide {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding: 0px 30px 0px 30px;
+  font-size: 24px;
+  font-weight: 700;
+  font-family: 'Kanit';
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  text-align: center;
+
+  > label {
+    color: #f19f00;
+    font-size: 30px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  > allday {
+    color: #ffffff;
+    font-size: 50px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  > text {
+    color: #ffffff;
+    font-size: 30px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+}
+
+.calo-table {
+  margin-top: 20px;
+  display: flex;
+  border: none;
+  background-color: #0c0e0b;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  height: 60px;
+  width: 90%;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+
+.accordions {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  
+
+  > text {
+    font-family: 'Kanit';
+    color: #ffffff;
+    font-size: 30px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+}
+
+/* Add your custom styles for the accordion summary */
+.summary {
+  background-color: lightblue;
+  /* Example: background-color: lightgreen; */
+}
+
+/* Add your custom styles for the accordion details */
+.details {
+  background-color: lightblue;
+  /* Example: background-color: lightyellow; */
+}

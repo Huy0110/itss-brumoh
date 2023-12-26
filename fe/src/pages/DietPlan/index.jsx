@@ -25,11 +25,11 @@ export default function DietPlan() {
       <Header goBack={true} text={'Chế độ ăn'} />
       <div className="diet-plan">
         <label>Tổng lượng Calo cần tiêu thụ trong ngày</label>
-        <allday>{allday}kcal</allday>
+        <allday>2000 kcal</allday>
         <label>Đề xuất</label>
-        <text>Bữa sáng: {breakfast}kcal</text>
-        <text>Bữa trưa: {lunch}kcal</text>
-        <text>Bữa tối: {dinner}kcal</text>
+        <text>Bữa sáng: 1000 kcal</text>
+        <text>Bữa trưa: 600 kcal</text>
+        <text>Bữa tối: 400 kcal</text>
       </div>
       <button className="calo-table" onClick={handleClick}>
         Bảng Calo

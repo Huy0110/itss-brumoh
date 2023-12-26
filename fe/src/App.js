@@ -15,6 +15,7 @@ import PlanCreate from './pages/PlanCreate'
 import DailyExercise from './pages/DailyExercise'
 import CreateDailyExercises from './pages/CreateDailyExercises'
 import DietPlan from './pages/DietPlan'
+import MealGuide from './pages/MealGuide'
 
 const App = () => {
   return (
@@ -36,6 +37,7 @@ const App = () => {
           <Route element={<Auth path={'login'}>{<Home />}</Auth>} path="home" />
           <Route element={<Auth path={'login'}>{<Home />}</Auth>} path="/" />
           <Route element={<DietPlan />} path="/diet" />
+          <Route element={<MealGuide />} path="/meal-guide" />
         </Route>
       </Routes>
     </div>
