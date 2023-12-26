@@ -90,7 +90,11 @@ export default function CreateDailyExercises() {
           <></>
         )}
       </div>
+<<<<<<< HEAD
       <button className="create-exercise-done" onClick={() => handleDone()}>
+=======
+      <button className="create-exercise-done" onClick={handleDone()}>
+>>>>>>> origin
         Hoàn thành
       </button>
       <NavBar />
