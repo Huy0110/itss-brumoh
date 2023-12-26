@@ -31,6 +31,7 @@ export default function CreateDailyExercises() {
     } catch (error) {
       console.error(error?.response?.data?.message)
     }
+    navigate('/training-plan')
   }
 
   const handleAddExercises = () => {
