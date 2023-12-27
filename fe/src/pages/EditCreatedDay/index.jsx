@@ -61,6 +61,7 @@ export default function EditCreatedDay() {
     } catch (error) {
       console.error(error?.response?.data?.message)
     }
+    localStorage.setItem('selfPlanCreated', [])
     navigate('/training-plan')
   }
 

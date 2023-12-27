@@ -34,6 +34,7 @@ export default function ExercisePreview() {
     plan.day == day ? { ...plan, listExercises: [...plan.listExercises, exercise] } : plan
   )
   console.log(newPlan);
+
   const handleConfirmExercise = () => {
     localStorage.setItem('selfPlanCreated', JSON.stringify(newPlan))
     navigate('/create-daily-exercises')
