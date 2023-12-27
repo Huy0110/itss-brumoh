@@ -9,23 +9,24 @@ import USER from '../../services/userService'
 
 export default function CreateDailyExercises() {
   const navigate = useNavigate()
-  const createdPlan = JSON.parse(localStorage.getItem('selfPlanCreated')) || []
+  const storedData = localStorage.getItem('selfPlanCreated')
+  const createdPlan = storedData ? JSON.parse(storedData) : []
   const [plan, setPlan] = useState(createdPlan)
   useEffect(() => {
     localStorage.setItem('selfPlanCreated', JSON.stringify(plan))
   }, [plan])
 
-  const handleDone = () => {
+  const handleDone = async () => {
     const createdPlan = JSON.parse(localStorage.getItem('selfPlanCreated')) || []
     const sendMessage = {}
-    createdPlan.map((plan,index) => {
-      sendMessage[index] = []
+    createdPlan.map((plan, index) => {
+      sendMessage[index + 1] = []
       plan.listExercises.map((exercise) => {
-        sendMessage[index].push(exercise._id)
+        sendMessage[index+1].push(exercise._id)
       })
     })
     try {
-      const res = USER.saveTrainingPlan({ sendMessage })
+      const res = await USER.saveTrainingPlan({ data: sendMessage })
       console.log(res)
     } catch (error) {
       console.error(error?.response?.data?.message)

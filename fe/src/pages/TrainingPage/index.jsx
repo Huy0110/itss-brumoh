@@ -7,12 +7,13 @@ import USER from '../../services/userService'
 import './style.css'
 import CommonButton from '../../components/CommonButton'
 export default function TrainingPage() {
-  const [exercises, setExercises] = useState()
-  const [goal, setGoal] = useState()
+  const [exercises, setExercises] = useState([])
+  const [goal, setGoal] = useState({})
   const navigate = useNavigate()
   const onClickDetail = () => {
     localStorage.setItem('exercises', JSON.stringify(exercises))
-    localStorage.setItem('goal', JSON.stringify(goal))
+    if (goal)
+      localStorage.setItem('goal', JSON.stringify(goal))
     navigate('/training-detail')
   }
   const onClickChange = () => {
