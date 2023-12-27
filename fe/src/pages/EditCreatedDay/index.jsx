@@ -45,7 +45,7 @@ export default function EditCreatedDay() {
   const handleDone = () => {
     const createdPlan = JSON.parse(localStorage.getItem('selfPlanCreated')) || []
     const sendMessage = {}
-    createdPlan.map((plan,index) => {
+    createdPlan.map((plan, index) => {
       sendMessage[index] = []
       plan.listExercises.map((exercise) => {
         sendMessage[index].push(exercise._id)
@@ -69,7 +69,7 @@ export default function EditCreatedDay() {
         {exercisesList.map((exercise, index) => (
           <div key={index}>
             <div className="created-exercise">
-              <button className="exercise" >
+              <button className="exercise">
                 <div className="cover-img"></div>
                 <h6>
                   Bài tập {index + 1}: {exercise.name}

@@ -48,7 +48,6 @@ export default function CreateDailyExercises() {
   const handleEditDay = (index) => {
     navigate(`/create-daily-exercises/day/${index + 1}`)
   }
-  console.log(plan)
   return (
     <>
       <Header goBack={true} text={'Chọn bài tập cho từng ngày'} />
