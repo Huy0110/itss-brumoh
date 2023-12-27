@@ -55,7 +55,6 @@ export default function EditCreatedDay() {
         sendMessage[index].push(exercise._id)
       })
     })
-    console.log(sendMessage)
     try {
       const res = USER.saveTrainingPlan({ sendMessage })
       console.log(res)

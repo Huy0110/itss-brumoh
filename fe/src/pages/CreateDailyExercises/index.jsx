@@ -24,7 +24,6 @@ export default function CreateDailyExercises() {
         sendMessage[index].push(exercise._id)
       })
     })
-    console.log(sendMessage)
     try {
       const res = USER.saveTrainingPlan({ sendMessage })
       console.log(res)
@@ -38,7 +37,6 @@ export default function CreateDailyExercises() {
     if (plan.length >= 7) return
     const newPlan = [...plan, { day: plan.length + 1, listExercises: [] }]
     setPlan(newPlan)
-    console.log(plan)
   }
 
   const handleDeleteDay = (index) => {
@@ -49,8 +47,6 @@ export default function CreateDailyExercises() {
   const handleEditDay = (index) => {
     navigate(`/create-daily-exercises/day/${index + 1}`)
   }
-
-  console.log(plan)
   return (
     <>
       <Header goBack={true} text={'Chọn bài tập cho từng ngày'} />
@@ -90,11 +86,7 @@ export default function CreateDailyExercises() {
           <></>
         )}
       </div>
-<<<<<<< HEAD
       <button className="create-exercise-done" onClick={() => handleDone()}>
-=======
-      <button className="create-exercise-done" onClick={handleDone()}>
->>>>>>> origin
         Hoàn thành
       </button>
       <NavBar />
