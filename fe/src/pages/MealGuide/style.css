@@ -12,21 +12,21 @@
   /* justify-content: center; */
   text-align: center;
 
-  > label {
+  >label {
     color: #f19f00;
     font-size: 30px;
     margin-bottom: 10px;
     text-align: center;
   }
 
-  > allday {
+  >allday {
     color: #ffffff;
     font-size: 50px;
     margin-bottom: 40px;
     text-align: center;
   }
 
-  > text {
+  >text {
     color: #ffffff;
     font-size: 30px;
     margin-bottom: 10px;
@@ -38,11 +38,10 @@
   margin-top: 20px;
   display: flex;
   border: none;
-  background-color: #0c0e0b;
+  background-color: #909090 !important;
   color: white;
   font-size: 20px;
   font-weight: bold;
-  height: 60px;
   width: 90%;
   justify-content: center;
   align-items: center;
@@ -50,12 +49,13 @@
 }
 
 .accordions {
-  background: transparent;
-  border: none;
-  color: #ffffff;
-  
+  background: transparent !important;
+  /* background-color: #33393D!important; */
+  border: none !important;
+  color: #ffffff !important;
 
-  > text {
+
+  >text {
     font-family: 'Kanit';
     color: #ffffff;
     font-size: 30px;
@@ -72,6 +72,7 @@
 
 /* Add your custom styles for the accordion details */
 .details {
-  background-color: lightblue;
+  background-color: #909090 !important;
+  color: #ffffff !important;
   /* Example: background-color: lightyellow; */
 }

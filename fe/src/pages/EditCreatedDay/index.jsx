@@ -17,7 +17,7 @@ export default function EditCreatedDay() {
   useEffect(() => {
     const createdPlan = JSON.parse(localStorage.getItem('selfPlanCreated')) || []
     setCurPlan(createdPlan)
-    createdPlan.forEach((plan) => {
+    createdPlan.map((plan) => {
       if (plan.day == id) setExercisesList(plan.listExercises)
     })
   }, [id])

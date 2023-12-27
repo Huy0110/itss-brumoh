@@ -146,17 +146,18 @@ const USER = {
       })
   },
   saveTrainingPlan: async ({ data }) => {
-    try {
-      let result = await privateHttp({
-        method: 'POST',
-        url: '/save-training-plan',
-        data: data,
+    return await privateHttp({
+      method: 'POST',
+      url: '/save-training-plan',
+      data: data
+    })
+      .then((res) => {
+        return res
       })
-      return result
-    } catch (error) {
-      throw error 
-    }
-  },
+      .catch((err) => {
+        return err
+      })
+  }
 }
 
 export default USER
