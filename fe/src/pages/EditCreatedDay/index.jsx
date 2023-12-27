@@ -22,10 +22,6 @@ export default function EditCreatedDay() {
     })
   }, [id])
 
-  const handleViewExercise = (id) => {
-    console.log(id)
-  }
-
   const handleDeleteExercise = (index) => {
     const newExercisesList = exercisesList.filter((_, i) => i !== index)
 
@@ -73,7 +69,7 @@ export default function EditCreatedDay() {
         {exercisesList.map((exercise, index) => (
           <div key={index}>
             <div className="created-exercise">
-              <button className="exercise" onClick={() => handleViewExercise(index)}>
+              <button className="exercise" >
                 <div className="cover-img"></div>
                 <h6>
                   Bài tập {index + 1}: {exercise.name}
