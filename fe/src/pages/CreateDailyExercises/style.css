@@ -1,36 +1,46 @@
 .self-create-exercise {
-  width: 100%;
-  height: 65%;
-  padding: 0 1rem 0 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    width: 100%;
+    height: 65%;
+    padding: 0 1rem 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
+}
+.self-create-exercise::-webkit-scrollbar {
+    display: none;
+}
+
+.created-day {
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .self-create-exercise .exercise {
-  background-color: #b8b8b8;
-  width: 100%;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  padding-left: 1rem;
-  border-radius: 10px;
-  border: none;
-  color: white;
-  margin-bottom: 20px;
+    background-color: #b8b8b8;
+    width: 350px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    margin-bottom: 20px;
 }
 
 .self-create-exercise .no-exercise {
-  background-color: #666666;
-  width: 100%;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  padding-left: 1rem;
-  border-radius: 10px;
-  border: none;
-  color: white;
-  margin-bottom: 20px;
+    background-color: #666666;
+    width: 350px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    margin-bottom: 20px;
 }
 
 .add-button {
@@ -39,16 +49,23 @@
 }
 
 .create-exercise-done {
-  margin-top: 20px;
-  display: flex;
-  border: none;
-  background-color: #47f21c;
-  color: white;
-  font-size: 20px;
-  font-weight: bold;
-  height: 60px;
-  width: 90%;
-  justify-content: center;
-  align-items: center;
-  border-radius: 20px;
+    margin-top: 20px;
+    display: flex;
+    border: none;
+    background-color: #47F21C;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    height: 60px;
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.button-delete {
+    height: 60px;
+    border: none;
+    border-radius: 10px;
+    background-color: #b8b8b8;
 }

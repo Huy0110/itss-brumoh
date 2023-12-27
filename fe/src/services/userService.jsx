@@ -131,7 +131,32 @@ const USER = {
       .catch((err) => {
         return err
       })
-  }
+  },
+
+  getExerciseByType: async () => {
+    return await privateHttp({
+      method: 'GET',
+      url: '/exercise-by-type'
+    })
+      .then((res) => {
+        return res
+      })
+      .catch((err) => {
+        return err
+      })
+  },
+  saveTrainingPlan: async ({ data }) => {
+    try {
+      let result = await privateHttp({
+        method: 'POST',
+        url: '/save-training-plan',
+        data: data,
+      })
+      return result
+    } catch (error) {
+      throw error 
+    }
+  },
 }
 
 export default USER
