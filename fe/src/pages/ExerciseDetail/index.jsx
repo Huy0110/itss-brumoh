@@ -37,9 +37,13 @@ export default function ExerciseDetail() {
       <Header goBack={true} text={'Chi tiết bài tập'} />
       <div className="exercise-container">
         <label>Video</label>
-        <video className="video-container" controls>
-          <source src={video} type="video/mp4" />
-        </video>
+        <iframe
+          className='video-container'
+          src="https://www.youtube.com/embed/IODxDxX7oi4"
+          title="YouTube Video"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
         <label>Cách thực hiện</label>
         <span>{description}</span>
         <label>Hiệu quả mang lại</label>
