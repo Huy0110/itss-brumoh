@@ -76,7 +76,7 @@ export default function MealGuide() {
           <AccordionDetails>
             <TableContainer component={Paper}>
               <Table sx={{ minWidth: 355 }} aria-label="simple table">
-                <TableHead>
+                <TableHead className="table-head">
                   <TableRow>
                     <TableCell>Thực phẩm</TableCell>
                     <TableCell>Đơn vị</TableCell>

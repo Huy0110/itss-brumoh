@@ -12,8 +12,7 @@ export default function TrainingPage() {
   const navigate = useNavigate()
   const onClickDetail = () => {
     localStorage.setItem('exercises', JSON.stringify(exercises))
-    if (goal)
-      localStorage.setItem('goal', JSON.stringify(goal))
+    if (goal) localStorage.setItem('goal', JSON.stringify(goal))
     navigate('/training-detail')
   }
   const onClickChange = () => {

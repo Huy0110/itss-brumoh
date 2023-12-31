@@ -22,7 +22,7 @@ export default function CreateDailyExercises() {
     createdPlan.map((plan, index) => {
       sendMessage[index + 1] = []
       plan.listExercises.map((exercise) => {
-        sendMessage[index+1].push(exercise._id)
+        sendMessage[index + 1].push(exercise._id)
       })
     })
     try {

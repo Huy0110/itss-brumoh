@@ -11,6 +11,7 @@ export default function PlanCreate() {
     navigate('/bodyparam')
   }
   const handleCreatePlan = () => {
+    localStorage.setItem('selfPlanCreated', [])
     navigate('/create-daily-exercises')
   }
   return (
