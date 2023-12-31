@@ -30,7 +30,10 @@ privateHttp.interceptors.response.use(
     return response
   },
   (error) => {
-    if (error.response.status === 401 && error.response.statusText === 'Unauthorized') {
+    if (
+      (error.response.status === 401 && error.response.statusText === 'Unauthorized') ||
+      error.response.status === 403
+    ) {
       token.removeAccessToken()
       alert('Need to login')
       window.location.href = '/login'
