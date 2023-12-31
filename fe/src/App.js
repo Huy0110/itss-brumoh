@@ -4,7 +4,7 @@ import MainLayout from './components/layout/MainLayout'
 import LoginPage from './pages/LoginPage'
 import Auth from './hooks/auth'
 import BodyFat from './pages/BodyFat'
-import { Home } from './pages/Home'
+import Home from './pages/Home'
 import BodyParam from './pages/BodyParam'
 import TrainingPage from './pages/TrainingPage'
 import TrainingPlanRec from './pages/TrainingPlanRec'
@@ -39,7 +39,10 @@ const App = () => {
           <Route element={<CreateDailyExercises />} path="/create-daily-exercises" />
           <Route element={<EditCreatedDay />} path="/create-daily-exercises/day/:id" />
           <Route element={<SelectExercise />} path="/create-daily-exercises/day/:id/select-exercise" />
-          <Route element={<ExercisePreview />} path="/create-daily-exercises/day/:id/select-exercise/exercise-detail/:exerciseId" />
+          <Route
+            element={<ExercisePreview />}
+            path="/create-daily-exercises/day/:id/select-exercise/exercise-detail/:exerciseId"
+          />
           <Route element={<Auth path={'login'}>{<Home />}</Auth>} path="home" />
           <Route element={<Auth path={'login'}>{<Home />}</Auth>} path="/" />
           <Route element={<DietPlan />} path="/diet" />

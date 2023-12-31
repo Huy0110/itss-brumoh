@@ -7,7 +7,7 @@ import { TypeDetails } from '../../utils/constant'
 export default function TrainingDetail() {
   const exercises = JSON.parse(localStorage.getItem('exercises'))
   const storedGoal = localStorage.getItem('goal')
-  const goal = storedGoal !== null ? JSON.parse(storedGoal) : ""
+  const goal = storedGoal !== null ? JSON.parse(storedGoal) : ''
   const navigate = useNavigate()
 
   const getType = (types) => {

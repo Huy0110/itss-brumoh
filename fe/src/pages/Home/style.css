@@ -1,0 +1,48 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding: 20px 30px 0px 30px;
+}
+
+.title {
+  font-family: 'Kanit';
+  font-size: 24px;
+  font-weight: 700;
+  color: #f19f00;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.channel-container {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: 100%;
+  gap: 20px;
+}
+
+.channel {
+  display: flex;
+  flex-direction: row;
+  height: 72px;
+  width: 100%;
+  padding: 0 10px 0 10px;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 30px;
+}
+
+.channel-img {
+  height: 72px;
+  width: 72px;
+  border-radius: 50%;
+}
+
+.channel-name {
+  font-family: 'Kanit';
+  font-size: 28px;
+  font-weight: 700;
+  color: #b8b8b8;
+}

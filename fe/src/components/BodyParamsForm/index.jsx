@@ -144,26 +144,53 @@ export default function BodyParamsForm({ initBody }) {
       <GenderToggle gender={gender} onChange={handleGender} />
       <form className="body-params-form" onSubmit={(e) => handleSubmit(e)}>
         <Input value={age} placeholder="Tuổi" onChange={(e) => handleAge(e.target.value)} />
-        <Input value={weight} placeholder="Cân nặng" addonAfter="Kg" onChange={(e) => handleWeight(e.target.value)} />
-        <Input value={height} placeholder="Chiều cao" addonAfter="cm" onChange={(e) => handleHeight(e.target.value)} />
-        <Input value={neck} placeholder="Chu vi vòng cổ" addonAfter="cm" onChange={(e) => handleNeck(e.target.value)} />
+        <Input
+          value={weight}
+          placeholder="Cân nặng"
+          addonAfter="Kg"
+          style={{ backgroundColor: 'white' }}
+          onChange={(e) => handleWeight(e.target.value)}
+        />
+        <Input
+          value={height}
+          placeholder="Chiều cao"
+          addonAfter="cm"
+          style={{ backgroundColor: 'white' }}
+          onChange={(e) => handleHeight(e.target.value)}
+        />
+        <Input
+          value={neck}
+          placeholder="Chu vi vòng cổ"
+          addonAfter="cm"
+          style={{ backgroundColor: 'white' }}
+          onChange={(e) => handleNeck(e.target.value)}
+        />
         <Input
           value={bust}
           placeholder="Chu vi vòng ngực"
           addonAfter="cm"
+          style={{ backgroundColor: 'white' }}
           onChange={(e) => handleBust(e.target.value)}
         />
         <Input
           value={waist}
           placeholder="Chu vi vòng eo"
           addonAfter="cm"
+          style={{ backgroundColor: 'white' }}
           onChange={(e) => handleWaist(e.target.value)}
         />
-        <Input value={hip} placeholder="Chu vi vòng hông" addonAfter="cm" onChange={(e) => handleHip(e.target.value)} />
+        <Input
+          value={hip}
+          placeholder="Chu vi vòng hông"
+          addonAfter="cm"
+          style={{ backgroundColor: 'white' }}
+          onChange={(e) => handleHip(e.target.value)}
+        />
         <Input
           value={activityIntensity}
           placeholder="Cường độ vận động"
           addonAfter="Ngày"
+          style={{ backgroundColor: 'white' }}
           onChange={(e) => handleActivityIntensity(e.target.value)}
         />
         <button type="submit" className="btn-submit">

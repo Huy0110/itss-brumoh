@@ -3,7 +3,6 @@ import './style.css'
 import { useNavigate } from 'react-router-dom'
 
 export default function DietPlan() {
-
   const navigate = useNavigate()
 
   const handleClick = () => {

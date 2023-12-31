@@ -38,7 +38,7 @@ export default function ExerciseDetail() {
       <div className="exercise-container">
         <label>Video</label>
         <iframe
-          className='video-container'
+          className="video-container"
           src="https://www.youtube.com/embed/IODxDxX7oi4"
           title="YouTube Video"
           frameborder="0"

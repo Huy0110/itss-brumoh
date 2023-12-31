@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './style.css'
 import Header from '../../components/Header'
 import USER from '../../services/userService'
-import { useNavigate,useLocation } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 export default function SelectExercise() {
   const location = useLocation()
