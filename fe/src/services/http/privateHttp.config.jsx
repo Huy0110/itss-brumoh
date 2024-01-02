@@ -27,12 +27,14 @@ privateHttp.interceptors.request.use(
 
 privateHttp.interceptors.response.use(
   (response) => {
+    console.log('Response: ', response)
     return response
   },
   (error) => {
+    console.log('Error: ', error)
     if (
-      (error.response.status === 401 && error.response.statusText === 'Unauthorized') ||
-      error.response.status === 403
+      (error.response.status === 401 && error.response.data.message === 'Unauthorized!') ||
+      (error.response.status === 403 && error.response.data.message === 'No token provided!')
     ) {
       token.removeAccessToken()
       alert('Need to login')
