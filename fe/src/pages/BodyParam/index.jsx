@@ -6,6 +6,7 @@ import USER from '../../services/userService'
 
 export default function BodyParam() {
   const is_first_time = localStorage.getItem('is_first_time')
+  const change_plan = localStorage.getItem('change_plan')
   let goBack = true
   if (is_first_time === 'true') {
     goBack = false
@@ -17,8 +18,8 @@ export default function BodyParam() {
       if (res?.data?.bodyMeasurements) setInitBody(res?.data?.bodyMeasurements)
       if (res?.data?.is_first_time) localStorage.setItem('is_first_time', res?.data?.is_first_time)
     }
-    getBody()
-  }, [])
+    if (change_plan === 'true') getBody()
+  }, [change_plan])
   return (
     <>
       <Header goBack={goBack} text={'NHẬP CHỈ SỐ'} />
