@@ -9,6 +9,7 @@ const LoginPage = () => {
 
   const handleLogin = async () => {
     try {
+      localStorage.clear()
       const res = await USER.login({
         email: email,
         password: password
